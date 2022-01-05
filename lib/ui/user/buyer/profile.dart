@@ -277,7 +277,7 @@ class _ProfileState extends State<Profile> {
                           prefixIcon: Iconsax.user,
                           hintText: "Username",
                           isNotification: true,
-                          notification: infoMessages["required"],
+                          notification: infoMessages["required"]!,
                           notificationIconColor: CustomColor.red)
                       .input(context),
                   // formInput(context, Iconsax.user, "Username",
