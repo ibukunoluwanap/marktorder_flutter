@@ -6,6 +6,7 @@ import 'package:marktorder/components/inputs/input.dart';
 import 'package:marktorder/components/inputs/date_picker_input.dart';
 import 'package:marktorder/components/inputs/email_input.dart';
 import 'package:marktorder/components/inputs/phone_number_input.dart';
+import 'package:marktorder/components/inputs/state_input.dart';
 import 'package:marktorder/utils/color_constants.dart';
 import 'package:marktorder/utils/global_constants.dart';
 
@@ -348,14 +349,12 @@ class _ProfileState extends State<Profile> {
                   isNotification: true,
                   notification: infoMessages["required"]!,
                   notificationIconColor: CustomColor.green)),
-          // state input
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
-              child: Input(
-                  prefixIcon: Iconsax.location,
-                  hintText: "State",
+              child: StateInput(
                   isNotification: true,
+                  notificationIconSize: 12.0,
                   notification: infoMessages["required"]!,
                   notificationIconColor: CustomColor.green)),
           // location header

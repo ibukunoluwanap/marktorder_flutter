@@ -16,6 +16,9 @@ class EmailInput extends StatefulWidget {
   final String hintText;
   final String notification;
 
+  // size
+  final double notificationIconSize;
+
   // condition
   final bool isNotification;
   final bool isDropdown;
@@ -34,6 +37,9 @@ class EmailInput extends StatefulWidget {
       // text
       this.hintText = "",
       this.notification = "",
+
+      // size
+      this.notificationIconSize = 16.0,
 
       // condition
       this.isNotification = false,
@@ -115,7 +121,7 @@ class _EmailInputState extends State<EmailInput> {
                   child: Icon(
                     Iconsax.info_circle5,
                     color: widget.notificationIconColor,
-                    size: 16.0,
+                    size: widget.notificationIconSize,
                   ),
                 )
               : const SizedBox(

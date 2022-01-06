@@ -16,6 +16,9 @@ class PhoneNumberInput extends StatefulWidget {
   final String hintText;
   final String notification;
 
+  // size
+  final double notificationIconSize;
+
   // condition
   final bool isNotification;
   final bool isDropdown;
@@ -33,6 +36,9 @@ class PhoneNumberInput extends StatefulWidget {
       // text
       this.hintText = "",
       this.notification = "",
+
+      // size
+      this.notificationIconSize = 16.0,
 
       // condition
       this.isNotification = false,
@@ -125,7 +131,7 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
                   child: Icon(
                     Iconsax.info_circle5,
                     color: widget.notificationIconColor,
-                    size: 16.0,
+                    size: widget.notificationIconSize,
                   ),
                 )
               : const SizedBox(
