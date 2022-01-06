@@ -37,6 +37,10 @@ dependencies:
   iconsax: ^0.0.8
   google_fonts: ^2.2.0
   blur: ^3.0.0
+  email_validator: ^2.0.1
+  intl_phone_number_input: ^0.7.0+2
+  flutter_rounded_date_picker: ^2.0.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

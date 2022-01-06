@@ -2,7 +2,10 @@ import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:marktorder/components/form_input.dart';
+import 'package:marktorder/components/inputs/input.dart';
+import 'package:marktorder/components/inputs/date_picker_input.dart';
+import 'package:marktorder/components/inputs/email_input.dart';
+import 'package:marktorder/components/inputs/phone_number_input.dart';
 import 'package:marktorder/utils/color_constants.dart';
 import 'package:marktorder/utils/global_constants.dart';
 
@@ -235,6 +238,7 @@ class _ProfileState extends State<Profile> {
       margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
       child: Column(
         children: [
+          // user information
           Container(
             alignment: Alignment.topLeft,
             margin: const EdgeInsets.only(bottom: 10.0),
@@ -258,6 +262,7 @@ class _ProfileState extends State<Profile> {
               ],
             ),
           ),
+          // profile header
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 5.0),
@@ -268,121 +273,130 @@ class _ProfileState extends State<Profile> {
                       fontWeight: FontWeight.w700,
                       color: CustomColor.green,
                       letterSpacing: 0.15))),
+          // username input
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
-              child: Column(
-                children: [
-                  FormInput(
-                          prefixIcon: Iconsax.user,
-                          hintText: "Username",
-                          isNotification: true,
-                          notification: infoMessages["required"]!,
-                          notificationIconColor: CustomColor.red)
-                      .input(context),
-                  // formInput(context, Iconsax.user, "Username",
-                  //     infoMessages['required']),
-                ],
-              )),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 10.0),
-          //     child: Column(
-          //       children: [
-          //         formInput(context, Iconsax.user, "First Name",
-          //             infoMessages['required']),
-          //       ],
-          //     )),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 10.0),
-          //     child: Column(
-          //       children: [
-          //         formInput(context, Iconsax.user, "Last Name",
-          //             infoMessages['required']),
-          //       ],
-          //     )),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 10.0),
-          //     child: Column(
-          //       children: [
-          //         formInput(context, Iconsax.sms, "Email Address",
-          //             infoMessages['required']),
-          //       ],
-          //     )),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 10.0),
-          //     child: Column(
-          //       children: [
-          //         formInput(context, Iconsax.call, "Phone Number", ""),
-          //       ],
-          //     )),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 10.0),
-          //     child: Column(
-          //       children: [
-          //         formInput(context, Iconsax.hospital, "Birthday", ""),
-          //       ],
-          //     )),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 10.0),
-          //     child: Column(
-          //       children: [
-          //         formInput(context, Iconsax.people, "Gender", ""),
-          //       ],
-          //     )),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 10.0),
-          //     child: Column(
-          //       children: [
-          //         formInput(context, Iconsax.teacher, "University",
-          //             infoMessages['required']),
-          //       ],
-          //     )),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 10.0),
-          //     child: Column(
-          //       children: [
-          //         formInput(context, Iconsax.location, "State",
-          //             infoMessages['required']),
-          //       ],
-          //     )),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 5.0),
-          //     child: Text('Location',
-          //         overflow: TextOverflow.ellipsis,
-          //         style: GoogleFonts.poppins(
-          //             fontSize: 18,
-          //             fontWeight: FontWeight.w700,
-          //             color: CustomColor.green,
-          //             letterSpacing: 0.15))),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 5.0),
-          //     child: Text('Saved Items',
-          //         overflow: TextOverflow.ellipsis,
-          //         style: GoogleFonts.poppins(
-          //             fontSize: 18,
-          //             fontWeight: FontWeight.w700,
-          //             color: CustomColor.green,
-          //             letterSpacing: 0.15))),
-          // Container(
-          //     alignment: Alignment.topLeft,
-          //     margin: const EdgeInsets.only(bottom: 5.0),
-          //     child: Text('Activities',
-          //         overflow: TextOverflow.ellipsis,
-          //         style: GoogleFonts.poppins(
-          //             fontSize: 18,
-          //             fontWeight: FontWeight.w700,
-          //             color: CustomColor.green,
-          //             letterSpacing: 0.15))),
+              child: Input(
+                      prefixIcon: Iconsax.user,
+                      hintText: "Username",
+                      isNotification: true,
+                      notification: infoMessages["required"]!,
+                      notificationIconColor: CustomColor.green)
+                  .input(context)),
+          // first name input
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: Input(
+                      prefixIcon: Iconsax.user,
+                      hintText: "First Name",
+                      isNotification: true,
+                      notification: infoMessages["required"]!,
+                      notificationIconColor: CustomColor.green)
+                  .input(context)),
+          // last name input
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: Input(
+                      prefixIcon: Iconsax.user,
+                      hintText: "Last Name",
+                      isNotification: true,
+                      notification: infoMessages["required"]!,
+                      notificationIconColor: CustomColor.green)
+                  .input(context)),
+          // email address input
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: EmailInput(
+                      prefixIcon: Iconsax.sms,
+                      hintText: "Email Address",
+                      isNotification: true,
+                      notification: infoMessages["required"]!,
+                      notificationIconColor: CustomColor.green)
+                  .input(context)),
+          // phone number input
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: const PhoneNumberInput(
+                prefixIcon: Iconsax.call,
+                hintText: "Phone Number",
+              ).input(context)),
+          // birthday input
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: const DatePickerInput(
+                prefixIcon: Iconsax.hospital,
+                suffixIcon: Iconsax.calendar_1,
+                hintText: "Birthday",
+              ).input(context)),
+          // gender input
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: const Input(
+                prefixIcon: Iconsax.people,
+                hintText: "Gender",
+              ).input(context)),
+          // university input
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: Input(
+                      prefixIcon: Iconsax.teacher,
+                      hintText: "University",
+                      isNotification: true,
+                      notification: infoMessages["required"]!,
+                      notificationIconColor: CustomColor.green)
+                  .input(context)),
+          // state input
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: Input(
+                      prefixIcon: Iconsax.location,
+                      hintText: "State",
+                      isNotification: true,
+                      notification: infoMessages["required"]!,
+                      notificationIconColor: CustomColor.green)
+                  .input(context)),
+          // location header
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 5.0),
+              child: Text('Location',
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: CustomColor.green,
+                      letterSpacing: 0.15))),
+          // saved items header
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 5.0),
+              child: Text('Saved Items',
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: CustomColor.green,
+                      letterSpacing: 0.15))),
+          // activities header
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 5.0),
+              child: Text('Activities',
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: CustomColor.green,
+                      letterSpacing: 0.15))),
         ],
       ),
     );
