@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:marktorder/components/snackbar_notification.dart';
+import 'package:marktorder/components/notification/snackbar_notification.dart';
 import 'package:marktorder/utils/color_constants.dart';
 
-class Input {
+class Input extends StatefulWidget {
   // icon
   final IconData? suffixIcon;
   final IconData? prefixIcon;
@@ -24,8 +24,7 @@ class Input {
   final Brightness? keyboardAppearance;
 
   const Input(
-      {
-      // icon
+      {Key? key, // icon
       this.suffixIcon,
       this.prefixIcon,
 
@@ -42,13 +41,20 @@ class Input {
 
       // keyboad
       this.keyboardType,
-      this.keyboardAppearance});
+      this.keyboardAppearance})
+      : super(key: key);
 
-  input(BuildContext context) {
+  @override
+  _InputState createState() => _InputState();
+}
+
+class _InputState extends State<Input> {
+  @override
+  Widget build(BuildContext context) {
     return Stack(children: [
       TextFormField(
-        keyboardAppearance: keyboardAppearance,
-        keyboardType: keyboardType,
+        keyboardAppearance: widget.keyboardAppearance,
+        keyboardType: widget.keyboardType,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         cursorColor: CustomColor.blue,
         style: const TextStyle(
@@ -56,12 +62,12 @@ class Input {
             color: CustomColor.blue,
             height: 2.0),
         decoration: InputDecoration(
-          hintText: hintText,
+          hintText: widget.hintText,
           prefixIconConstraints: const BoxConstraints(minWidth: 0.0),
           prefixIcon: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-            child: Icon(prefixIcon, color: CustomColor.darkGray),
+            child: Icon(widget.prefixIcon, color: CustomColor.darkGray),
           ),
           border: const OutlineInputBorder(),
           enabledBorder: OutlineInputBorder(
@@ -91,15 +97,15 @@ class Input {
       Positioned(
           top: 5.0,
           right: 5.0,
-          child: isNotification
+          child: widget.isNotification
               ? InkWell(
                   onTap: () {
                     Padding(
                       padding: const EdgeInsets.all(100.0),
                       child: SnackBarNotification(
-                              message: notification,
+                              message: widget.notification,
                               mode: "MODERN",
-                              bgColor: notificationIconColor,
+                              bgColor: widget.notificationIconColor,
                               textSize: 12.0,
                               isIcon: false)
                           .show(context),
@@ -107,7 +113,7 @@ class Input {
                   },
                   child: Icon(
                     Iconsax.info_circle5,
-                    color: notificationIconColor,
+                    color: widget.notificationIconColor,
                     size: 16.0,
                   ),
                 )

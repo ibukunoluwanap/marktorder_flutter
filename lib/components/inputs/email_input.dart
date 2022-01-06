@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:marktorder/components/snackbar_notification.dart';
+import 'package:marktorder/components/notification/snackbar_notification.dart';
 import 'package:marktorder/utils/color_constants.dart';
 import 'package:email_validator/email_validator.dart';
 
-class EmailInput {
+class EmailInput extends StatefulWidget {
   // icon
   final IconData? suffixIcon;
   final IconData? prefixIcon;
@@ -24,8 +24,7 @@ class EmailInput {
   final Brightness? keyboardAppearance;
 
   const EmailInput(
-      {
-      // icon
+      {Key? key, // icon
       this.suffixIcon,
       this.prefixIcon,
 
@@ -41,12 +40,19 @@ class EmailInput {
       this.isDropdown = false,
 
       // keyboad
-      this.keyboardAppearance});
+      this.keyboardAppearance})
+      : super(key: key);
 
-  input(BuildContext context) {
+  @override
+  _EmailInputState createState() => _EmailInputState();
+}
+
+class _EmailInputState extends State<EmailInput> {
+  @override
+  Widget build(BuildContext context) {
     return Stack(children: [
       TextFormField(
-        keyboardAppearance: keyboardAppearance,
+        keyboardAppearance: widget.keyboardAppearance,
         keyboardType: TextInputType.emailAddress,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         cursorColor: CustomColor.blue,
@@ -55,12 +61,12 @@ class EmailInput {
             color: CustomColor.blue,
             height: 2.0),
         decoration: InputDecoration(
-          hintText: hintText,
+          hintText: widget.hintText,
           prefixIconConstraints: const BoxConstraints(minWidth: 0.0),
           prefixIcon: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-            child: Icon(prefixIcon, color: CustomColor.darkGray),
+            child: Icon(widget.prefixIcon, color: CustomColor.darkGray),
           ),
           border: const OutlineInputBorder(),
           enabledBorder: OutlineInputBorder(
@@ -92,15 +98,15 @@ class EmailInput {
       Positioned(
           top: 5.0,
           right: 5.0,
-          child: isNotification
+          child: widget.isNotification
               ? InkWell(
                   onTap: () {
                     Padding(
                       padding: const EdgeInsets.all(100.0),
                       child: SnackBarNotification(
-                              message: notification,
+                              message: widget.notification,
                               mode: "MODERN",
-                              bgColor: notificationIconColor,
+                              bgColor: widget.notificationIconColor,
                               textSize: 12.0,
                               isIcon: false)
                           .show(context),
@@ -108,7 +114,7 @@ class EmailInput {
                   },
                   child: Icon(
                     Iconsax.info_circle5,
-                    color: notificationIconColor,
+                    color: widget.notificationIconColor,
                     size: 16.0,
                   ),
                 )

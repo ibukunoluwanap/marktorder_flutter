@@ -278,45 +278,41 @@ class _ProfileState extends State<Profile> {
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
               child: Input(
-                      prefixIcon: Iconsax.user,
-                      hintText: "Username",
-                      isNotification: true,
-                      notification: infoMessages["required"]!,
-                      notificationIconColor: CustomColor.green)
-                  .input(context)),
+                  prefixIcon: Iconsax.user,
+                  hintText: "Username",
+                  isNotification: true,
+                  notification: infoMessages["required"]!,
+                  notificationIconColor: CustomColor.green)),
           // first name input
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
               child: Input(
-                      prefixIcon: Iconsax.user,
-                      hintText: "First Name",
-                      isNotification: true,
-                      notification: infoMessages["required"]!,
-                      notificationIconColor: CustomColor.green)
-                  .input(context)),
+                  prefixIcon: Iconsax.user,
+                  hintText: "First Name",
+                  isNotification: true,
+                  notification: infoMessages["required"]!,
+                  notificationIconColor: CustomColor.green)),
           // last name input
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
               child: Input(
-                      prefixIcon: Iconsax.user,
-                      hintText: "Last Name",
-                      isNotification: true,
-                      notification: infoMessages["required"]!,
-                      notificationIconColor: CustomColor.green)
-                  .input(context)),
+                  prefixIcon: Iconsax.user,
+                  hintText: "Last Name",
+                  isNotification: true,
+                  notification: infoMessages["required"]!,
+                  notificationIconColor: CustomColor.green)),
           // email address input
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
               child: EmailInput(
-                      prefixIcon: Iconsax.sms,
-                      hintText: "Email Address",
-                      isNotification: true,
-                      notification: infoMessages["required"]!,
-                      notificationIconColor: CustomColor.green)
-                  .input(context)),
+                  prefixIcon: Iconsax.sms,
+                  hintText: "Email Address",
+                  isNotification: true,
+                  notification: infoMessages["required"]!,
+                  notificationIconColor: CustomColor.green)),
           // phone number input
           Container(
               alignment: Alignment.topLeft,
@@ -324,7 +320,7 @@ class _ProfileState extends State<Profile> {
               child: const PhoneNumberInput(
                 prefixIcon: Iconsax.call,
                 hintText: "Phone Number",
-              ).input(context)),
+              )),
           // birthday input
           Container(
               alignment: Alignment.topLeft,
@@ -341,29 +337,27 @@ class _ProfileState extends State<Profile> {
               child: const Input(
                 prefixIcon: Iconsax.people,
                 hintText: "Gender",
-              ).input(context)),
+              )),
           // university input
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
               child: Input(
-                      prefixIcon: Iconsax.teacher,
-                      hintText: "University",
-                      isNotification: true,
-                      notification: infoMessages["required"]!,
-                      notificationIconColor: CustomColor.green)
-                  .input(context)),
+                  prefixIcon: Iconsax.teacher,
+                  hintText: "University",
+                  isNotification: true,
+                  notification: infoMessages["required"]!,
+                  notificationIconColor: CustomColor.green)),
           // state input
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
               child: Input(
-                      prefixIcon: Iconsax.location,
-                      hintText: "State",
-                      isNotification: true,
-                      notification: infoMessages["required"]!,
-                      notificationIconColor: CustomColor.green)
-                  .input(context)),
+                  prefixIcon: Iconsax.location,
+                  hintText: "State",
+                  isNotification: true,
+                  notification: infoMessages["required"]!,
+                  notificationIconColor: CustomColor.green)),
           // location header
           Container(
               alignment: Alignment.topLeft,
