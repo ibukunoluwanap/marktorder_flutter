@@ -333,7 +333,7 @@ class _ProfileState extends State<Profile> {
                 prefixIcon: Iconsax.hospital,
                 suffixIcon: Iconsax.calendar_1,
                 hintText: "Birthday",
-              ).input(context)),
+              )),
           // gender input
           Container(
               alignment: Alignment.topLeft,
