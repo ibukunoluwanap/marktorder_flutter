@@ -46,6 +46,8 @@ class _DatePickerInputState extends State<DatePickerInput> {
   DateTime datePicked =
       DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
   DateFormat dateFormat = DateFormat("yyyy-MM-dd");
+  DateTime today =
+      DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +110,9 @@ class _DatePickerInputState extends State<DatePickerInput> {
             Expanded(
                 flex: 9,
                 child: Text(
-                  dateFormat.format(datePicked),
+                  dateFormat.format(datePicked) == dateFormat.format(today)
+                      ? widget.hintText
+                      : dateFormat.format(datePicked),
                   textAlign: TextAlign.left,
                 )),
             Expanded(
