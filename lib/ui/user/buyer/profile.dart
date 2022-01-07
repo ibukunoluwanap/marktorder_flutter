@@ -28,15 +28,15 @@ class _ProfileState extends State<Profile> {
           appBar(),
           SliverList(
               delegate: SliverChildListDelegate([
-            profileImage(),
-            editProfile(),
+            profileHeader(),
+            profile(),
           ]))
         ],
       )),
     );
   }
 
-  // custom appbar
+  // appbar
   Widget appBar() {
     double height = MediaQuery.of(context).size.height;
     double bannerHeight = ((height / 100) * 10).toDouble();
@@ -54,17 +54,13 @@ class _ProfileState extends State<Profile> {
       leading: IconButton(
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
-        onPressed: () {
-          print("Back Clicked");
-        },
+        onPressed: () {},
         icon: const Icon(Iconsax.arrow_left),
       ),
       title: InkWell(
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
-        onTap: () {
-          print("Search Clicked");
-        },
+        onTap: () {},
         child: Container(
           alignment: Alignment.bottomLeft,
           height: toolbarHeight / 1.5,
@@ -103,16 +99,14 @@ class _ProfileState extends State<Profile> {
         IconButton(
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
-            onPressed: () {
-              print("Settings Clicked");
-            },
+            onPressed: () {},
             icon: const Icon(Iconsax.setting_2)),
       ],
     );
   }
 
-  // top navbar
-  Widget profileImage() {
+  // profile header
+  Widget profileHeader() {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     double bannerHeight = ((height / 100) * 10).toDouble();
@@ -123,14 +117,12 @@ class _ProfileState extends State<Profile> {
     final avatarOutterRadius = bannerHeight / 1.36;
 
     //building banner
-    Widget buildBanner() {
+    Widget banner() {
       return Stack(children: [
         InkWell(
           highlightColor: Colors.transparent,
           splashColor: Colors.transparent,
-          onTap: () {
-            print("Banner Clicked");
-          },
+          onTap: () {},
           child: Blur(
             blurColor: CustomColor.black,
             blur: 2.0,
@@ -154,9 +146,7 @@ class _ProfileState extends State<Profile> {
             elevation: 0.0,
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
-            onPressed: () {
-              print("Edit Banner Clicked");
-            },
+            onPressed: () {},
             color: CustomColor.blue,
             shape: const CircleBorder(),
             child: const Icon(
@@ -170,15 +160,13 @@ class _ProfileState extends State<Profile> {
     }
 
     // bulding avatar
-    Widget buildAvatar() => Positioned(
+    Widget avatar() => Positioned(
           top: avatarTop,
           child: Padding(
             padding: const EdgeInsets.only(left: 10.0),
             child: Stack(clipBehavior: Clip.none, children: [
               InkWell(
-                onTap: () {
-                  print("Avatar Clicked");
-                },
+                onTap: () {},
                 radius: avatarOutterRadius,
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
@@ -203,9 +191,7 @@ class _ProfileState extends State<Profile> {
                     elevation: 0.0,
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
-                    onPressed: () {
-                      print("Edit Avatar Clicked");
-                    },
+                    onPressed: () {},
                     color: CustomColor.white,
                     shape: const CircleBorder(),
                     child: const Icon(
@@ -224,15 +210,15 @@ class _ProfileState extends State<Profile> {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          buildBanner(),
-          buildAvatar(),
+          banner(),
+          avatar(),
         ],
       ),
     );
   }
 
-  // build the profile list
-  Widget editProfile() {
+  // profile
+  Widget profile() {
     double width = MediaQuery.of(context).size.width;
 
     return Container(
@@ -364,17 +350,13 @@ class _ProfileState extends State<Profile> {
             children: [
               Expanded(
                   child: Button(
-                      onPressed: () {
-                        print("Undo");
-                      },
+                      onPressed: () {},
                       bgColor: CustomColor.orange,
                       text: "Undo")),
               SizedBox(width: (width / 100) * 5),
               Expanded(
                   child: Button(
-                      onPressed: () {
-                        print("Save");
-                      },
+                      onPressed: () {},
                       textColor: CustomColor.white,
                       bgColor: CustomColor.green,
                       text: "Save")),

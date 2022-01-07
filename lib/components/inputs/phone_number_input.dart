@@ -101,15 +101,9 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
           isDense: true,
           contentPadding: const EdgeInsets.fromLTRB(15.0, 15.0, 0.0, 15.0),
         ),
-        onInputChanged: (PhoneNumber number) {
-          print(number.phoneNumber);
-        },
-        onInputValidated: (bool value) {
-          print(value);
-        },
-        onSaved: (PhoneNumber number) {
-          print('On Saved: $number');
-        },
+        onInputChanged: (PhoneNumber number) {},
+        onInputValidated: (bool value) {},
+        onSaved: (PhoneNumber number) {},
       ),
       Positioned(
           top: 5.0,

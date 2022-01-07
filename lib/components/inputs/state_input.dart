@@ -48,9 +48,7 @@ class _StateInputState extends State<StateInput> {
         searchBarRadius: 10.0,
         dropdownDialogRadius: 10.0,
         dropdownHeadingStyle: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            color: CustomColor.blue),
+            fontSize: 14, fontWeight: FontWeight.w500, color: CustomColor.blue),
         dropdownItemStyle: const TextStyle(color: CustomColor.darkGray),
         disabledDropdownDecoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
@@ -60,15 +58,9 @@ class _StateInputState extends State<StateInput> {
             borderRadius: BorderRadius.circular(10.0),
             color: CustomColor.gray,
             border: Border.all(color: CustomColor.gray, width: 1.0)),
-        onCountryChanged: (value) {
-          print(value);
-        },
-        onStateChanged: (value) {
-          print(value);
-        },
-        onCityChanged: (value) {
-          print(value);
-        },
+        onCountryChanged: (value) {},
+        onStateChanged: (value) {},
+        onCityChanged: (value) {},
       ),
       Positioned(
           top: 5.0,
