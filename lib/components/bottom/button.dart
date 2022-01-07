@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:marktorder/utils/color_constants.dart';
 
 class Button extends StatefulWidget {
@@ -13,7 +12,6 @@ class Button extends StatefulWidget {
   final double borderRadius;
   final double fontSize;
   final FontWeight fontWeight;
-  final double letterSpacing;
 
   const Button({
     Key? key,
@@ -26,7 +24,6 @@ class Button extends StatefulWidget {
     this.borderRadius = 10.0,
     this.fontSize = 20.0,
     this.fontWeight = FontWeight.w500,
-    this.letterSpacing = 0.15,
   }) : super(key: key);
 
   @override
@@ -49,13 +46,11 @@ class _ButtonState extends State<Button> {
         borderRadius: BorderRadius.circular(widget.borderRadius),
       ),
       minWidth: width,
-      child: Text(
-        widget.text,
-        style: GoogleFonts.poppins(
+      child: Text(widget.text,
+          style: TextStyle(
             fontSize: widget.fontSize,
             fontWeight: widget.fontWeight,
-            letterSpacing: widget.letterSpacing),
-      ),
+          )),
     );
   }
 }

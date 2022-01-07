@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SnackBarNotification {
   // text
@@ -297,7 +296,7 @@ class SnackBarNotification {
         text,
         overflow: TextOverflow.ellipsis,
         softWrap: false,
-        style: GoogleFonts.poppins(
+        style: TextStyle(
           fontSize: size,
           fontWeight: fontWeight,
           color: mode == "MODERN"

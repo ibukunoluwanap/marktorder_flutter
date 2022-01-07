@@ -1,6 +1,5 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marktorder/components/bottom/button.dart';
 import 'package:marktorder/components/inputs/dropdown_input.dart';
@@ -73,8 +72,8 @@ class _ProfileState extends State<Profile> {
               border: Border(
                   bottom: BorderSide(width: 1.0, color: CustomColor.darkGray))),
           child: Row(
-            children: [
-              const Expanded(
+            children: const [
+              Expanded(
                 flex: 1,
                 child: Icon(
                   Iconsax.search_normal,
@@ -82,7 +81,7 @@ class _ProfileState extends State<Profile> {
                   size: 18.0,
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 width: 5.0,
               ),
               Expanded(
@@ -90,10 +89,9 @@ class _ProfileState extends State<Profile> {
                 child: Text(
                   'Search for skills, products, sellers',
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
-                      letterSpacing: 0.5,
                       color: CustomColor.darkGray),
                 ),
               ),
@@ -248,21 +246,21 @@ class _ProfileState extends State<Profile> {
             margin: const EdgeInsets.only(bottom: 10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: const [
                 Text('Chioma Ifebunso',
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.poppins(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        color: CustomColor.blue,
-                        letterSpacing: 0.15)),
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: CustomColor.blue,
+                    )),
                 Text('@pandoraloveth',
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
-                        color: CustomColor.blue,
-                        letterSpacing: 0.25)),
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                      color: CustomColor.blue,
+                    )),
               ],
             ),
           ),
@@ -270,13 +268,13 @@ class _ProfileState extends State<Profile> {
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 5.0),
-              child: Text('Profile',
+              child: const Text('Profile',
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: CustomColor.green,
-                      letterSpacing: 0.15))),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: CustomColor.green,
+                  ))),
           // username input
           Container(
               alignment: Alignment.topLeft,
@@ -386,35 +384,35 @@ class _ProfileState extends State<Profile> {
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 5.0),
-              child: Text('Location',
+              child: const Text('Location',
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: CustomColor.green,
-                      letterSpacing: 0.15))),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: CustomColor.green,
+                  ))),
           // saved items header
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 5.0),
-              child: Text('Saved Items',
+              child: const Text('Saved Items',
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: CustomColor.green,
-                      letterSpacing: 0.15))),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: CustomColor.green,
+                  ))),
           // activities header
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 5.0),
-              child: Text('Activities',
+              child: const Text('Activities',
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: CustomColor.green,
-                      letterSpacing: 0.15))),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: CustomColor.green,
+                  ))),
         ],
       ),
     );

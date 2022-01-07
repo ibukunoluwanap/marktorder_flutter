@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:csc_picker/csc_picker.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marktorder/components/notification/snackbar_notification.dart';
 import 'package:marktorder/utils/color_constants.dart';
@@ -48,10 +47,9 @@ class _StateInputState extends State<StateInput> {
         disableCountry: true,
         searchBarRadius: 10.0,
         dropdownDialogRadius: 10.0,
-        dropdownHeadingStyle: GoogleFonts.poppins(
+        dropdownHeadingStyle: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
-            letterSpacing: 0.1,
             color: CustomColor.blue),
         dropdownItemStyle: const TextStyle(color: CustomColor.darkGray),
         disabledDropdownDecoration: BoxDecoration(
