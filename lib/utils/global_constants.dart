@@ -3,3 +3,8 @@ final infoMessages = {
   "validatePassword": "Password not contain special character",
   "comfirmPassword": "Please comfirm password",
 };
+
+final genderChoice = {
+  "female": "Female",
+  "male": "Male",
+};

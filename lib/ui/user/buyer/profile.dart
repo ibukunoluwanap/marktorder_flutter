@@ -1,3 +1,4 @@
+import 'package:awesome_dropdown/awesome_dropdown.dart';
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -335,12 +336,32 @@ class _ProfileState extends State<Profile> {
               )),
           // gender input
           Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: const Input(
-                prefixIcon: Iconsax.people,
-                hintText: "Gender",
-              )),
+            alignment: Alignment.topLeft,
+            margin: const EdgeInsets.only(bottom: 10.0),
+            child: AwesomeDropDown(
+              dropDownOverlayBGColor: CustomColor.white,
+              dropDownListTextStyle: const TextStyle(
+                  fontSize: 16.0, color: CustomColor.blue),
+              elevation: 0.0,
+              dropDownBorderRadius: 10.0,
+              dropDownTopBorderRadius: 10.0,
+              dropDownBottomBorderRadius: 10.0,
+              numOfListItemToShow: 10,
+              selectedItemTextStyle: GoogleFonts.poppins(
+                  fontWeight: FontWeight.normal,
+                  color: CustomColor.darkGray,
+                  fontSize: 16.0),
+              dropDownBGColor: CustomColor.gray,
+              dropDownList: [genderChoice["female"]!, genderChoice["male"]!],
+              dropDownIcon: const Icon(
+                Iconsax.arrow_down,
+                color: CustomColor.darkGray,
+              ),
+              onDropDownItemClick: (selectedItem) {
+                print(selectedItem);
+              },
+            ),
+          ),
           // university input
           Container(
               alignment: Alignment.topLeft,
@@ -360,6 +381,7 @@ class _ProfileState extends State<Profile> {
                   notificationIconSize: 12.0,
                   notification: infoMessages["required"]!,
                   notificationIconColor: CustomColor.green)),
+          // save profile form
           Row(
             children: [
               Expanded(
