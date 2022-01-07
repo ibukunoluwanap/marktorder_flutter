@@ -2,6 +2,7 @@ import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:marktorder/components/bottom/button.dart';
 import 'package:marktorder/components/inputs/input.dart';
 import 'package:marktorder/components/inputs/date_picker_input.dart';
 import 'package:marktorder/components/inputs/email_input.dart';
@@ -233,7 +234,8 @@ class _ProfileState extends State<Profile> {
 
   // build the profile list
   Widget editProfile() {
-    // return widget
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
       alignment: Alignment.topLeft,
       margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
@@ -349,6 +351,7 @@ class _ProfileState extends State<Profile> {
                   isNotification: true,
                   notification: infoMessages["required"]!,
                   notificationIconColor: CustomColor.green)),
+          // state input
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
@@ -357,6 +360,26 @@ class _ProfileState extends State<Profile> {
                   notificationIconSize: 12.0,
                   notification: infoMessages["required"]!,
                   notificationIconColor: CustomColor.green)),
+          Row(
+            children: [
+              Expanded(
+                  child: Button(
+                      onPressed: () {
+                        print("Undo");
+                      },
+                      bgColor: CustomColor.orange,
+                      text: "Undo")),
+              SizedBox(width: (width / 100) * 5),
+              Expanded(
+                  child: Button(
+                      onPressed: () {
+                        print("Save");
+                      },
+                      textColor: CustomColor.white,
+                      bgColor: CustomColor.green,
+                      text: "Save")),
+            ],
+          ),
           // location header
           Container(
               alignment: Alignment.topLeft,
