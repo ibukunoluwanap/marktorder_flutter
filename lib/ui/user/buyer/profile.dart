@@ -1,9 +1,9 @@
-import 'package:awesome_dropdown/awesome_dropdown.dart';
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marktorder/components/bottom/button.dart';
+import 'package:marktorder/components/inputs/dropdown_input.dart';
 import 'package:marktorder/components/inputs/input.dart';
 import 'package:marktorder/components/inputs/date_picker_input.dart';
 import 'package:marktorder/components/inputs/email_input.dart';
@@ -336,32 +336,12 @@ class _ProfileState extends State<Profile> {
               )),
           // gender input
           Container(
-            alignment: Alignment.topLeft,
-            margin: const EdgeInsets.only(bottom: 10.0),
-            child: AwesomeDropDown(
-              dropDownOverlayBGColor: CustomColor.white,
-              dropDownListTextStyle: const TextStyle(
-                  fontSize: 16.0, color: CustomColor.blue),
-              elevation: 0.0,
-              dropDownBorderRadius: 10.0,
-              dropDownTopBorderRadius: 10.0,
-              dropDownBottomBorderRadius: 10.0,
-              numOfListItemToShow: 10,
-              selectedItemTextStyle: GoogleFonts.poppins(
-                  fontWeight: FontWeight.normal,
-                  color: CustomColor.darkGray,
-                  fontSize: 16.0),
-              dropDownBGColor: CustomColor.gray,
-              dropDownList: [genderChoice["female"]!, genderChoice["male"]!],
-              dropDownIcon: const Icon(
-                Iconsax.arrow_down,
-                color: CustomColor.darkGray,
-              ),
-              onDropDownItemClick: (selectedItem) {
-                print(selectedItem);
-              },
-            ),
-          ),
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: DropdownInput(
+                  text: "Gender",
+                  list: [genderChoice["female"]!, genderChoice["male"]!],
+                  prefixIcon: Iconsax.people)),
           // university input
           Container(
               alignment: Alignment.topLeft,
