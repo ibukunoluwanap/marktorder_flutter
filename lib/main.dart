@@ -6,26 +6,27 @@ import 'package:marktorder/theme/theme.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
   // setting status and navigation bar colors
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    systemNavigationBarColor: CustomColor.blue,
+    systemNavigationBarColor: CustomColor.green,
+    systemNavigationBarDividerColor: CustomColor.green,
     statusBarColor: CustomColor.blue,
   ));
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      color: CustomColor.green,
+      title: 'MarktOrder',
       theme: ThemeData(
           scaffoldBackgroundColor: CustomColor.white,
-          colorScheme:
-              ColorScheme.fromSwatch().copyWith(secondary: CustomColor.green),
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+              secondary: CustomColor.green, primary: CustomColor.blue),
           fontFamily: GoogleFonts.poppins().fontFamily,
           textTheme: customTextTheme(context)),
       home: const Profile(),

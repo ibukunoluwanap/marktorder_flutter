@@ -47,7 +47,7 @@ class _ProfileState extends State<Profile> {
       pinned: true,
       snap: true,
       elevation: 0.0,
-      backgroundColor: CustomColor.blue,
+      backgroundColor: CustomColor.green,
       foregroundColor: CustomColor.white,
       toolbarHeight: toolbarHeight,
       expandedHeight: toolbarHeight,
@@ -123,16 +123,12 @@ class _ProfileState extends State<Profile> {
           highlightColor: Colors.transparent,
           splashColor: Colors.transparent,
           onTap: () {},
-          child: Blur(
-            blurColor: CustomColor.black,
-            blur: 2.0,
-            child: SizedBox(
-              width: width,
-              height: bannerHeight * 1.2,
-              child: Image.asset(
-                "assets/images/banner.jpg",
-                fit: BoxFit.cover,
-              ),
+          child: SizedBox(
+            width: width,
+            height: bannerHeight * 1.2,
+            child: Image.asset(
+              "assets/images/banner.jpg",
+              fit: BoxFit.cover,
             ),
           ),
         ),
