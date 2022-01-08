@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:marktorder/ui/user/buyer/profile.dart';
 import 'package:marktorder/utils/color_constants.dart';
 
 class AddressBook extends StatefulWidget {
@@ -11,9 +13,20 @@ class AddressBook extends StatefulWidget {
 class _AddressBookState extends State<AddressBook> {
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "AddressBook",
-      style: TextStyle(color: CustomColor.green),
+    return Scaffold(
+      body: Column(
+        children: [
+          const Text(
+            "AddressBook",
+            style: TextStyle(color: CustomColor.green),
+          ),
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("Back"))
+        ],
+      ),
     );
   }
 }

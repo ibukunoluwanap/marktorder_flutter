@@ -1,13 +1,15 @@
-import 'package:blur/blur.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:marktorder/components/bottom/button.dart';
+import 'package:marktorder/components/button/button.dart';
+import 'package:marktorder/components/button/button_like_input.dart';
 import 'package:marktorder/components/inputs/dropdown_input.dart';
 import 'package:marktorder/components/inputs/input.dart';
 import 'package:marktorder/components/inputs/date_picker_input.dart';
 import 'package:marktorder/components/inputs/email_input.dart';
 import 'package:marktorder/components/inputs/phone_number_input.dart';
 import 'package:marktorder/components/inputs/state_input.dart';
+import 'package:marktorder/ui/user/buyer/location/address_book.dart';
 import 'package:marktorder/utils/color_constants.dart';
 import 'package:marktorder/utils/global_constants.dart';
 
@@ -369,6 +371,19 @@ class _ProfileState extends State<Profile> {
                     fontWeight: FontWeight.w700,
                     color: CustomColor.green,
                   ))),
+          // address book
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: ButtonLikeInput(
+                text: "Address Book",
+                prefixIcon: Iconsax.map,
+                suffixIcon: Iconsax.arrow_right_34,
+                onPress: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => const AddressBook()));
+                },
+              )),
           // saved items header
           Container(
               alignment: Alignment.topLeft,
