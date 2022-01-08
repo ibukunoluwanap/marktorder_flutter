@@ -11,9 +11,20 @@ class Orders extends StatefulWidget {
 class _OrdersState extends State<Orders> {
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "Orders",
-      style: TextStyle(color: CustomColor.green),
+    return Scaffold(
+      body: Column(
+        children: [
+          const Text(
+            "Orders",
+            style: TextStyle(color: CustomColor.green),
+          ),
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("Back"))
+        ],
+      ),
     );
   }
 }

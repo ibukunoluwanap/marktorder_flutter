@@ -9,7 +9,13 @@ import 'package:marktorder/components/inputs/date_picker_input.dart';
 import 'package:marktorder/components/inputs/email_input.dart';
 import 'package:marktorder/components/inputs/phone_number_input.dart';
 import 'package:marktorder/components/inputs/state_input.dart';
+import 'package:marktorder/components/navigation/app_bar.dart';
+import 'package:marktorder/ui/user/buyer/activities/pending_rating.dart';
+import 'package:marktorder/ui/user/buyer/activities/recent_search.dart';
 import 'package:marktorder/ui/user/buyer/location/address_book.dart';
+import 'package:marktorder/ui/user/buyer/location/location.dart';
+import 'package:marktorder/ui/user/buyer/saved_items/orders.dart';
+import 'package:marktorder/ui/user/buyer/saved_items/wishlist.dart';
 import 'package:marktorder/utils/color_constants.dart';
 import 'package:marktorder/utils/global_constants.dart';
 
@@ -23,11 +29,57 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    // height
+    double height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
           body: CustomScrollView(
         slivers: [
-          appBar(),
+          CustomAppBar(
+            leadingIcon: Iconsax.arrow_left,
+            leadingIconOnPress: () {},
+            title: InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              onTap: () {},
+              child: Container(
+                alignment: Alignment.bottomLeft,
+                height: (((((height / 100) * 10).toDouble()) / 2) * 1.2) / 1.5,
+                decoration: const BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(
+                            width: 1.0, color: CustomColor.darkGray))),
+                child: Row(
+                  children: const [
+                    Expanded(
+                      flex: 1,
+                      child: Icon(
+                        Iconsax.search_normal,
+                        color: CustomColor.darkGray,
+                        size: 18.0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5.0,
+                    ),
+                    Expanded(
+                      flex: 9,
+                      child: Text(
+                        'Search for skills, products, sellers',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: CustomColor.darkGray),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            actionIcon: Iconsax.setting_2,
+            actionIconOnPress: () {},
+          ),
           SliverList(
               delegate: SliverChildListDelegate([
             profileHeader(),
@@ -35,75 +87,6 @@ class _ProfileState extends State<Profile> {
           ]))
         ],
       )),
-    );
-  }
-
-  // appbar
-  Widget appBar() {
-    double height = MediaQuery.of(context).size.height;
-    double bannerHeight = ((height / 100) * 10).toDouble();
-    double toolbarHeight = (bannerHeight / 2) * 1.2;
-
-    return SliverAppBar(
-      floating: true,
-      pinned: true,
-      snap: true,
-      elevation: 0.0,
-      backgroundColor: CustomColor.green,
-      foregroundColor: CustomColor.white,
-      toolbarHeight: toolbarHeight,
-      expandedHeight: toolbarHeight,
-      leading: IconButton(
-        highlightColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        onPressed: () {},
-        icon: const Icon(Iconsax.arrow_left),
-      ),
-      title: InkWell(
-        highlightColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        onTap: () {},
-        child: Container(
-          alignment: Alignment.bottomLeft,
-          height: toolbarHeight / 1.5,
-          decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(width: 1.0, color: CustomColor.darkGray))),
-          child: Row(
-            children: const [
-              Expanded(
-                flex: 1,
-                child: Icon(
-                  Iconsax.search_normal,
-                  color: CustomColor.darkGray,
-                  size: 18.0,
-                ),
-              ),
-              SizedBox(
-                width: 5.0,
-              ),
-              Expanded(
-                flex: 9,
-                child: Text(
-                  'Search for skills, products, sellers',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: CustomColor.darkGray),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      actions: [
-        IconButton(
-            highlightColor: Colors.transparent,
-            splashColor: Colors.transparent,
-            onPressed: () {},
-            icon: const Icon(Iconsax.setting_2)),
-      ],
     );
   }
 
@@ -217,10 +200,7 @@ class _ProfileState extends State<Profile> {
 
   // profile
   Widget profile() {
-    double width = MediaQuery.of(context).size.width;
-
     return Container(
-      alignment: Alignment.topLeft,
       margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
       child: Column(
         children: [
@@ -328,10 +308,13 @@ class _ProfileState extends State<Profile> {
           Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
-              child: Input(
+              child: DropdownInput(
+                  text: "University",
+                  list: university,
                   prefixIcon: Iconsax.teacher,
-                  hintText: "University",
+                  dropdownHeight: 50,
                   isNotification: true,
+                  notificationIconSize: 14.0,
                   notification: infoMessages["required"]!,
                   notificationIconColor: CustomColor.green)),
           // state input
@@ -344,26 +327,18 @@ class _ProfileState extends State<Profile> {
                   notification: infoMessages["required"]!,
                   notificationIconColor: CustomColor.green)),
           // save profile form
-          Row(
-            children: [
-              Expanded(
-                  child: Button(
-                      onPressed: () {},
-                      bgColor: CustomColor.orange,
-                      text: "Undo")),
-              SizedBox(width: (width / 100) * 5),
-              Expanded(
-                  child: Button(
-                      onPressed: () {},
-                      textColor: CustomColor.white,
-                      bgColor: CustomColor.green,
-                      text: "Save")),
-            ],
-          ),
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: Button(
+                  onPressed: () {},
+                  textColor: CustomColor.white,
+                  bgColor: CustomColor.green,
+                  text: "Save")),
           // location header
           Container(
               alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 5.0),
+              margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
               child: const Text('Location',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -384,10 +359,23 @@ class _ProfileState extends State<Profile> {
                       CupertinoPageRoute(builder: (_) => const AddressBook()));
                 },
               )),
+          // location
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: ButtonLikeInput(
+                text: "Location",
+                prefixIcon: Iconsax.location,
+                suffixIcon: Iconsax.arrow_right_34,
+                onPress: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => const Location()));
+                },
+              )),
           // saved items header
           Container(
               alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 5.0),
+              margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
               child: const Text('Saved Items',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -395,10 +383,36 @@ class _ProfileState extends State<Profile> {
                     fontWeight: FontWeight.w700,
                     color: CustomColor.green,
                   ))),
+          // wishlist
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: ButtonLikeInput(
+                text: "Wishlist",
+                prefixIcon: Iconsax.heart,
+                suffixIcon: Iconsax.arrow_right_34,
+                onPress: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => const Wishlist()));
+                },
+              )),
+          // recent search
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: ButtonLikeInput(
+                text: "Orders",
+                prefixIcon: Iconsax.shopping_cart,
+                suffixIcon: Iconsax.arrow_right_34,
+                onPress: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => const Orders()));
+                },
+              )),
           // activities header
           Container(
               alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 5.0),
+              margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
               child: const Text('Activities',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -406,6 +420,36 @@ class _ProfileState extends State<Profile> {
                     fontWeight: FontWeight.w700,
                     color: CustomColor.green,
                   ))),
+          // recent search
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: ButtonLikeInput(
+                text: "Recent Search",
+                prefixIcon: Iconsax.refresh_right_square,
+                suffixIcon: Iconsax.arrow_right_34,
+                onPress: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => const RecentSearch()));
+                },
+              )),
+          // pending rating
+          Container(
+              alignment: Alignment.topLeft,
+              child: ButtonLikeInput(
+                text: "Pending Rating",
+                prefixIcon: Iconsax.star,
+                suffixIcon: Iconsax.arrow_right_34,
+                onPress: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (_) => const PendingRating()));
+                },
+              )),
+          const SizedBox(
+            height: 20.0,
+          )
         ],
       ),
     );

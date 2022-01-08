@@ -11,9 +11,20 @@ class RecentSearch extends StatefulWidget {
 class _RecentSearchState extends State<RecentSearch> {
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "RecentSearch",
-      style: TextStyle(color: CustomColor.green),
+    return Scaffold(
+      body: Column(
+        children: [
+          const Text(
+            "RecentSearch",
+            style: TextStyle(color: CustomColor.green),
+          ),
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("Back"))
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:marktorder/ui/user/buyer/profile.dart';
 import 'package:marktorder/utils/color_constants.dart';
 
 class AddressBook extends StatefulWidget {

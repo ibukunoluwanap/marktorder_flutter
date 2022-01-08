@@ -6,12 +6,6 @@ import 'package:marktorder/theme/theme.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  // setting status and navigation bar colors
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    systemNavigationBarColor: CustomColor.green,
-    systemNavigationBarDividerColor: CustomColor.green,
-    statusBarColor: CustomColor.blue,
-  ));
   runApp(const App());
 }
 
@@ -20,8 +14,19 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var brightness = WidgetsBinding.instance!.window.platformBrightness;
+    final bool isDarkMode = brightness == Brightness.dark;
+
+    // setting status and navigation bar colors
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor:
+          isDarkMode ? CustomColor.blue : CustomColor.white,
+      systemNavigationBarDividerColor:
+          isDarkMode ? CustomColor.blue : CustomColor.white,
+      statusBarColor: isDarkMode ? CustomColor.blue : CustomColor.green,
+    ));
     return MaterialApp(
-      color: CustomColor.green,
+      color: isDarkMode ? CustomColor.blue : CustomColor.green,
       title: 'MarktOrder',
       theme: ThemeData(
           scaffoldBackgroundColor: CustomColor.white,
