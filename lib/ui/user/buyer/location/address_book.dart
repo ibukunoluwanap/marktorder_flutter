@@ -39,7 +39,7 @@ class _AddressBookState extends State<AddressBook> {
                 ),
               ],
             ),
-            actionIcon: Iconsax.search_status_1,
+            actionIcon: Iconsax.search_normal_1,
             actionIconOnPress: () {},
           ),
           SliverList(

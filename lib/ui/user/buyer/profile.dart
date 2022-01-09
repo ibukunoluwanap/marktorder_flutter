@@ -53,7 +53,7 @@ class _ProfileState extends State<Profile> {
                   Expanded(
                     flex: 1,
                     child: Icon(
-                      Iconsax.search_status_1,
+                      Iconsax.search_normal_1,
                       color: CustomColor.darkGray,
                       size: 18.0,
                     ),
