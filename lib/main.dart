@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marktorder/UI/user/buyer/profile.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marktorder/utils/color_constants.dart';
+import 'package:marktorder/utils/colors.dart';
 import 'package:marktorder/theme/theme.dart';
 import 'package:flutter/services.dart';
 

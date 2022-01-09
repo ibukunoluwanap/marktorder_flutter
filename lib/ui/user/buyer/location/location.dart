@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marktorder/utils/color_constants.dart';
+import 'package:marktorder/utils/colors.dart';
 
 class Location extends StatefulWidget {
   const Location({Key? key}) : super(key: key);

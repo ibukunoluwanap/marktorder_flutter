@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marktorder/components/navigation/app_bar.dart';
-import 'package:marktorder/utils/color_constants.dart';
+import 'package:marktorder/utils/colors.dart';
 
 class RatingStar extends StatefulWidget {
   const RatingStar({Key? key}) : super(key: key);

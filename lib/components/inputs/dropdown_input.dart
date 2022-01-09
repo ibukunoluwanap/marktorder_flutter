@@ -2,7 +2,7 @@ import 'package:dropdown_plus/dropdown_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marktorder/components/notification/snackbar_notification.dart';
-import 'package:marktorder/utils/color_constants.dart';
+import 'package:marktorder/utils/colors.dart';
 
 class DropdownInput extends StatefulWidget {
   // text
@@ -61,7 +61,7 @@ class _DropdownInputState extends State<DropdownInput> {
           hintStyle: const TextStyle(
               decoration: TextDecoration.none,
               color: CustomColor.darkGray,
-              height: 2.5),
+              height: 2),
           prefixIconConstraints: const BoxConstraints(minWidth: 0.0),
           prefixIcon: Padding(
             padding:

@@ -4,9 +4,25 @@ final infoMessages = {
   "comfirmPassword": "Please comfirm password",
 };
 
-final genderChoice = {
-  "female": "Female",
-  "male": "Male",
+final genderChoice = [
+  "Female",
+  "Male",
+];
+
+final userApi = {
+  "id": 1,
+  "avatar": "assets/images/avatar.jpg",
+  "banner": "assets/images/banner.jpg",
+  "username": "Pandoraloveth",
+  "first_name": "chioma",
+  "last_name": "ifebunso",
+  "email": "pandoraloveth17@gmail.com",
+  "phone_number": "+2349018398960",
+  "birthday": "2022-01-01",
+  "gender": "female",
+  "university": "benson idahosa university",
+  "state": "odo",
+  "city": "benin city",
 };
 
 const university = [
@@ -19,9 +35,9 @@ const university = [
   "Admiralty University of Nigeria",
   "Afe Babalola University",
   "African University of Science and Technology",
-  "Ahmadu Bello University"
-      "Ajayi Crowther University"
-      "Akwa Ibom State University",
+  "Ahmadu Bello University",
+  "Ajayi Crowther University",
+  "Akwa Ibom State University",
   "Alex Ekwueme Federal University",
   "Al-Hikmah University",
   "Al-Qalam University",
@@ -57,8 +73,8 @@ const university = [
   "Dominican University",
   "Eastern Palm University",
   "Ebonyi State University",
-  "Edo University"
-      "Edwin Clark University",
+  "Edo University",
+  "Edwin Clark University",
   "Ekiti State University",
   "Eko University of Medical and Health Sciences",
   "Elizade University",
@@ -154,8 +170,8 @@ const university = [
   "University of Ibadan",
   "University of Ilorin",
   "University of Jos",
-  "University of Lagos"
-      "University of Maiduguri",
+  "University of Lagos",
+  "University of Maiduguri",
   "University of Medical Sciences Ondo City",
   "University of Nigeria Nsukka",
   "University of Port Harcourt",
@@ -168,4 +184,63 @@ const university = [
   "Yobe State University",
   "Yusuf Maitama Sule University Kano",
   "Zamfara State University",
+];
+
+final addressBookApi = [
+  {
+    "id": 1,
+    "first_name": "Chioma",
+    "last_name": "Ifebunso",
+    "address": "No: 14 bole street yola YOLA-CENTRAL LOCATIONS, Adamawa",
+    "phone_number": "+2349018398960",
+    "other_phone_numer": "+2347039330833",
+    "isPrimary": true,
+  },
+  {
+    "id": 2,
+    "first_name": "Ibukunoluwa",
+    "last_name": "Naphtali",
+    "address": "No 33 Adeyi Street, Old bodija IBADAN-BODIJA, Oyo",
+    "phone_number": "+2349018398960",
+    "other_phone_numer": "+2348120051529",
+    "isPrimary": false,
+  },
+];
+
+final pendingRatingApi = [
+  {
+    "id": 1,
+    "image": "assets/images/seller6.jpg",
+    "product_name": "Plan Polo T-shirt",
+    "product_discription":
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt magna et vehicula placerat. Aenean lacus nisi, aliquam sit amet neque eu, elementum tempus arcu. Vivamus congue rhoncus diam. Nam lectus nisl.",
+    "bought_on": "2021-10-28",
+  },
+  {
+    "id": 2,
+    "image": "assets/images/seller2.jpg",
+    "product_name": "Men gray english suit",
+    "product_discription":
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt magna et vehicula placerat. Aenean lacus nisi, aliquam sit amet neque eu, elementum tempus arcu. Vivamus congue rhoncus diam. Nam lectus nisl.",
+    "bought_on": "2022-01-08",
+  },
+];
+
+final recentSearchApi = [
+  {
+    "id": 1,
+    "search_query": "Dell 5510 Charger",
+  },
+  {
+    "id": 2,
+    "search_query": "Office Chair",
+  },
+  {
+    "id": 3,
+    "search_query": "iPhone 11 Case",
+  },
+  {
+    "id": 4,
+    "search_query": "Plan Polo T-shirt",
+  },
 ];

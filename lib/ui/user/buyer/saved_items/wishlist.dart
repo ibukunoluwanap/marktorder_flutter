@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marktorder/utils/color_constants.dart';
+import 'package:marktorder/utils/colors.dart';
 
 class Wishlist extends StatefulWidget {
   const Wishlist({Key? key}) : super(key: key);

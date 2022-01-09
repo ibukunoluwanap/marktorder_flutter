@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marktorder/utils/color_constants.dart';
+import 'package:marktorder/utils/colors.dart';
 
 class RecentSearch extends StatefulWidget {
   const RecentSearch({Key? key}) : super(key: key);

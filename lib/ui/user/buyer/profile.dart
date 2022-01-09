@@ -16,8 +16,9 @@ import 'package:marktorder/ui/user/buyer/location/address_book.dart';
 import 'package:marktorder/ui/user/buyer/location/location.dart';
 import 'package:marktorder/ui/user/buyer/saved_items/orders.dart';
 import 'package:marktorder/ui/user/buyer/saved_items/wishlist.dart';
-import 'package:marktorder/utils/color_constants.dart';
-import 'package:marktorder/utils/global_constants.dart';
+import 'package:marktorder/utils/colors.dart';
+import 'package:marktorder/utils/global.dart';
+import 'package:marktorder/utils/test_api.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -28,7 +29,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   final GlobalKey _profileFormKey = GlobalKey();
-  
+
   @override
   Widget build(BuildContext context) {
     // height
@@ -112,7 +113,7 @@ class _ProfileState extends State<Profile> {
             width: width,
             height: bannerHeight * 1.2,
             child: Image.asset(
-              "assets/images/banner.jpg",
+              userApi["banner"].toString(),
               fit: BoxFit.cover,
             ),
           ),
@@ -157,8 +158,7 @@ class _ProfileState extends State<Profile> {
                   child: CircleAvatar(
                     radius: avatarInnerRadius,
                     backgroundColor: CustomColor.gray,
-                    backgroundImage:
-                        const AssetImage("assets/images/profile.jpg"),
+                    backgroundImage: AssetImage(userApi["avatar"].toString()),
                   ),
                 ),
               ),
@@ -212,17 +212,18 @@ class _ProfileState extends State<Profile> {
               margin: const EdgeInsets.only(bottom: 10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('Chioma Ifebunso',
+                children: [
+                  Text(
+                      "${firstUpper(userApi["first_name"].toString())} ${firstUpper(userApi["last_name"].toString())}",
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w600,
                         color: CustomColor.blue,
                       )),
-                  Text('@pandoraloveth',
+                  Text(userApi["username"].toString().toLowerCase(),
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w300,
                         color: CustomColor.blue,
@@ -247,7 +248,8 @@ class _ProfileState extends State<Profile> {
                 margin: const EdgeInsets.only(bottom: 10.0),
                 child: Input(
                     prefixIcon: Iconsax.user,
-                    hintText: "Username",
+                    hintText: firstUpper(userApi["username"].toString()) ??
+                        "Username",
                     isNotification: true,
                     notification: infoMessages["required"]!,
                     notificationIconColor: CustomColor.green)),
@@ -257,7 +259,8 @@ class _ProfileState extends State<Profile> {
                 margin: const EdgeInsets.only(bottom: 10.0),
                 child: Input(
                     prefixIcon: Iconsax.user,
-                    hintText: "First Name",
+                    hintText: firstUpper(userApi["first_name"].toString()) ??
+                        "First Name",
                     isNotification: true,
                     notification: infoMessages["required"]!,
                     notificationIconColor: CustomColor.green)),
@@ -267,7 +270,8 @@ class _ProfileState extends State<Profile> {
                 margin: const EdgeInsets.only(bottom: 10.0),
                 child: Input(
                     prefixIcon: Iconsax.user,
-                    hintText: "Last Name",
+                    hintText: firstUpper(userApi["last_name"].toString()) ??
+                        "Last Name",
                     isNotification: true,
                     notification: infoMessages["required"]!,
                     notificationIconColor: CustomColor.green)),
@@ -277,7 +281,9 @@ class _ProfileState extends State<Profile> {
                 margin: const EdgeInsets.only(bottom: 10.0),
                 child: EmailInput(
                     prefixIcon: Iconsax.sms,
-                    hintText: "Email Address",
+                    hintText:
+                        firstUpper(userApi["email"].toString()).toLowerCase() ??
+                            "Email Address",
                     isNotification: true,
                     notification: infoMessages["required"]!,
                     notificationIconColor: CustomColor.green)),
@@ -285,33 +291,36 @@ class _ProfileState extends State<Profile> {
             Container(
                 alignment: Alignment.topLeft,
                 margin: const EdgeInsets.only(bottom: 10.0),
-                child: const PhoneNumberInput(
+                child: PhoneNumberInput(
                   prefixIcon: Iconsax.call,
-                  hintText: "Phone Number",
+                  hintText: firstUpper(userApi["phone_number"].toString()) ??
+                      "Phone Number",
                 )),
             // birthday input
             Container(
                 alignment: Alignment.topLeft,
                 margin: const EdgeInsets.only(bottom: 10.0),
-                child: const DatePickerInput(
+                child: DatePickerInput(
                   prefixIcon: Iconsax.hospital,
                   suffixIcon: Iconsax.calendar_1,
-                  hintText: "Birthday",
+                  hintText:
+                      firstUpper(userApi["birthday"].toString()) ?? "Birthday",
                 )),
             // gender input
             Container(
                 alignment: Alignment.topLeft,
                 margin: const EdgeInsets.only(bottom: 10.0),
                 child: DropdownInput(
-                    text: "Gender",
-                    list: [genderChoice["female"]!, genderChoice["male"]!],
+                    text: firstUpper(userApi["gender"].toString()) ?? "Gender",
+                    list: genderChoice,
                     prefixIcon: Iconsax.people)),
             // university input
             Container(
                 alignment: Alignment.topLeft,
                 margin: const EdgeInsets.only(bottom: 10.0),
                 child: DropdownInput(
-                    text: "University",
+                    text: firstUpper(userApi["university"].toString()) ??
+                        "University",
                     list: university,
                     prefixIcon: Iconsax.teacher,
                     dropdownHeight: 50,

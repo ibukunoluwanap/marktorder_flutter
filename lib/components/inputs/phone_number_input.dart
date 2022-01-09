@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marktorder/components/notification/snackbar_notification.dart';
-import 'package:marktorder/utils/color_constants.dart';
+import 'package:marktorder/utils/colors.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class PhoneNumberInput extends StatefulWidget {
