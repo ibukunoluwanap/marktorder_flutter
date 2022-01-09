@@ -12,6 +12,8 @@ class Button extends StatefulWidget {
   final double borderRadius;
   final double fontSize;
   final FontWeight fontWeight;
+  final double? width;
+  final double? height;
 
   const Button({
     Key? key,
@@ -24,6 +26,8 @@ class Button extends StatefulWidget {
     this.borderRadius = 10.0,
     this.fontSize = 20.0,
     this.fontWeight = FontWeight.w500,
+    this.width,
+    this.height,
   }) : super(key: key);
 
   @override
@@ -33,8 +37,8 @@ class Button extends StatefulWidget {
 class _ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
+    final width = MediaQuery.of(context).size.width;
+    
     return MaterialButton(
       padding: widget.padding,
       onPressed: widget.onPressed,
@@ -45,7 +49,8 @@ class _ButtonState extends State<Button> {
         side: const BorderSide(color: CustomColor.gray, width: 0.0),
         borderRadius: BorderRadius.circular(widget.borderRadius),
       ),
-      minWidth: width,
+      minWidth: widget.width ?? width,
+      height: widget.height,
       child: Text(widget.text,
           style: TextStyle(
             fontSize: widget.fontSize,

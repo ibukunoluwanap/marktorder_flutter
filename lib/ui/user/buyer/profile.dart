@@ -31,63 +31,61 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     // height
     double height = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Scaffold(
-          body: CustomScrollView(
-        slivers: [
-          CustomAppBar(
-            leadingIcon: Iconsax.arrow_left,
-            leadingIconOnPress: () {},
-            title: InkWell(
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              onTap: () {},
-              child: Container(
-                alignment: Alignment.bottomLeft,
-                height: (((((height / 100) * 10).toDouble()) / 2) * 1.2) / 1.5,
-                decoration: const BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(
-                            width: 1.0, color: CustomColor.darkGray))),
-                child: Row(
-                  children: const [
-                    Expanded(
-                      flex: 1,
-                      child: Icon(
-                        Iconsax.search_normal,
-                        color: CustomColor.darkGray,
-                        size: 18.0,
-                      ),
+    return Scaffold(
+        body: CustomScrollView(
+      slivers: [
+        CustomAppBar(
+          leadingIcon: Iconsax.arrow_left,
+          leadingIconOnPress: () {},
+          title: InkWell(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            onTap: () {},
+            child: Container(
+              alignment: Alignment.bottomLeft,
+              height: (((((height / 100) * 10).toDouble()) / 2) * 1.2) / 1.5,
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                          width: 1.0, color: CustomColor.darkGray))),
+              child: Row(
+                children: const [
+                  Expanded(
+                    flex: 1,
+                    child: Icon(
+                      Iconsax.search_normal,
+                      color: CustomColor.darkGray,
+                      size: 18.0,
                     ),
-                    SizedBox(
-                      width: 5.0,
+                  ),
+                  SizedBox(
+                    width: 5.0,
+                  ),
+                  Expanded(
+                    flex: 9,
+                    child: Text(
+                      'Search for skills, products, sellers',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: CustomColor.darkGray),
                     ),
-                    Expanded(
-                      flex: 9,
-                      child: Text(
-                        'Search for skills, products, sellers',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: CustomColor.darkGray),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            actionIcon: Iconsax.setting_2,
-            actionIconOnPress: () {},
           ),
-          SliverList(
-              delegate: SliverChildListDelegate([
-            profileHeader(),
-            profile(),
-          ]))
-        ],
-      )),
-    );
+          actionIcon: Iconsax.setting_2,
+          actionIconOnPress: () {},
+        ),
+        SliverList(
+            delegate: SliverChildListDelegate([
+          profileHeader(),
+          profile(),
+        ]))
+      ],
+    ));
   }
 
   // profile header
@@ -215,7 +213,7 @@ class _ProfileState extends State<Profile> {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: 24,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w600,
                       color: CustomColor.blue,
                     )),
                 Text('@pandoraloveth',
