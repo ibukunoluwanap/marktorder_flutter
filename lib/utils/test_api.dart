@@ -21,7 +21,7 @@ final userApi = {
   "birthday": "2022-01-01",
   "gender": "female",
   "university": "benson idahosa university",
-  "state": "odo",
+  "state": "Edo",
   "city": "benin city",
 };
 

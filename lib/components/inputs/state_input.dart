@@ -10,6 +10,8 @@ class StateInput extends StatefulWidget {
 
   // text
   final String notification;
+  final String statePlaceholder;
+  final String cityPlaceholder;
 
   // size
   final double notificationIconSize;
@@ -25,6 +27,8 @@ class StateInput extends StatefulWidget {
 
     // text
     this.notification = "",
+    this.statePlaceholder = "State",
+    this.cityPlaceholder = "City",
 
     // size
     this.notificationIconSize = 16.0,
@@ -47,6 +51,10 @@ class _StateInputState extends State<StateInput> {
         disableCountry: true,
         searchBarRadius: 10.0,
         dropdownDialogRadius: 10.0,
+        currentState: widget.statePlaceholder,
+        currentCity: widget.cityPlaceholder,
+        stateDropdownLabel: widget.statePlaceholder,
+        cityDropdownLabel: widget.cityPlaceholder,
         dropdownHeadingStyle: const TextStyle(
             fontSize: 14, fontWeight: FontWeight.w500, color: CustomColor.blue),
         dropdownItemStyle: const TextStyle(color: CustomColor.darkGray),

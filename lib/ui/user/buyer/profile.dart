@@ -333,6 +333,8 @@ class _ProfileState extends State<Profile> {
                 alignment: Alignment.topLeft,
                 margin: const EdgeInsets.only(bottom: 10.0),
                 child: StateInput(
+                    statePlaceholder: firstUpper(userApi["state"].toString()),
+                    cityPlaceholder: firstUpper(userApi["city"].toString()),
                     isNotification: true,
                     notificationIconSize: 12.0,
                     notification: infoMessages["required"]!,
