@@ -10,7 +10,7 @@ import 'package:marktorder/components/inputs/email_input.dart';
 import 'package:marktorder/components/inputs/phone_number_input.dart';
 import 'package:marktorder/components/inputs/state_input.dart';
 import 'package:marktorder/components/navigation/app_bar.dart';
-import 'package:marktorder/ui/user/buyer/activities/pending_rating.dart';
+import 'package:marktorder/ui/user/buyer/activities/pending_rating/pending_rating.dart';
 import 'package:marktorder/ui/user/buyer/activities/recent_search.dart';
 import 'package:marktorder/ui/user/buyer/location/address_book.dart';
 import 'package:marktorder/ui/user/buyer/location/location.dart';
@@ -27,6 +27,8 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final GlobalKey _profileFormKey = GlobalKey();
+  
   @override
   Widget build(BuildContext context) {
     // height
@@ -198,257 +200,264 @@ class _ProfileState extends State<Profile> {
 
   // profile
   Widget profile() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
-      child: Column(
-        children: [
-          // user information
-          Container(
-            alignment: Alignment.topLeft,
-            margin: const EdgeInsets.only(bottom: 10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text('Chioma Ifebunso',
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                      color: CustomColor.blue,
-                    )),
-                Text('@pandoraloveth',
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                      color: CustomColor.blue,
-                    )),
-              ],
+    return Form(
+      key: _profileFormKey,
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
+        child: Column(
+          children: [
+            // user information
+            Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text('Chioma Ifebunso',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: CustomColor.blue,
+                      )),
+                  Text('@pandoraloveth',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w300,
+                        color: CustomColor.blue,
+                      )),
+                ],
+              ),
             ),
-          ),
-          // profile header
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 5.0),
-              child: const Text('Profile',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: CustomColor.green,
-                  ))),
-          // username input
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: Input(
-                  prefixIcon: Iconsax.user,
-                  hintText: "Username",
-                  isNotification: true,
-                  notification: infoMessages["required"]!,
-                  notificationIconColor: CustomColor.green)),
-          // first name input
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: Input(
-                  prefixIcon: Iconsax.user,
-                  hintText: "First Name",
-                  isNotification: true,
-                  notification: infoMessages["required"]!,
-                  notificationIconColor: CustomColor.green)),
-          // last name input
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: Input(
-                  prefixIcon: Iconsax.user,
-                  hintText: "Last Name",
-                  isNotification: true,
-                  notification: infoMessages["required"]!,
-                  notificationIconColor: CustomColor.green)),
-          // email address input
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: EmailInput(
-                  prefixIcon: Iconsax.sms,
-                  hintText: "Email Address",
-                  isNotification: true,
-                  notification: infoMessages["required"]!,
-                  notificationIconColor: CustomColor.green)),
-          // phone number input
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: const PhoneNumberInput(
-                prefixIcon: Iconsax.call,
-                hintText: "Phone Number",
-              )),
-          // birthday input
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: const DatePickerInput(
-                prefixIcon: Iconsax.hospital,
-                suffixIcon: Iconsax.calendar_1,
-                hintText: "Birthday",
-              )),
-          // gender input
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: DropdownInput(
-                  text: "Gender",
-                  list: [genderChoice["female"]!, genderChoice["male"]!],
-                  prefixIcon: Iconsax.people)),
-          // university input
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: DropdownInput(
-                  text: "University",
-                  list: university,
-                  prefixIcon: Iconsax.teacher,
-                  dropdownHeight: 50,
-                  isNotification: true,
-                  notificationIconSize: 14.0,
-                  notification: infoMessages["required"]!,
-                  notificationIconColor: CustomColor.green)),
-          // state input
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: StateInput(
-                  isNotification: true,
-                  notificationIconSize: 12.0,
-                  notification: infoMessages["required"]!,
-                  notificationIconColor: CustomColor.green)),
-          // save profile form
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: Button(
-                  onPressed: () {},
-                  textColor: CustomColor.white,
-                  bgColor: CustomColor.green,
-                  text: "Save")),
-          // location header
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
-              child: const Text('Location',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: CustomColor.green,
-                  ))),
-          // address book
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: ButtonLikeInput(
-                text: "Address Book",
-                prefixIcon: Iconsax.map,
-                suffixIcon: Iconsax.arrow_right_34,
-                onPress: () {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (_) => const AddressBook()));
-                },
-              )),
-          // location
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: ButtonLikeInput(
-                text: "Location",
-                prefixIcon: Iconsax.location,
-                suffixIcon: Iconsax.arrow_right_34,
-                onPress: () {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (_) => const Location()));
-                },
-              )),
-          // saved items header
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
-              child: const Text('Saved Items',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: CustomColor.green,
-                  ))),
-          // wishlist
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: ButtonLikeInput(
-                text: "Wishlist",
-                prefixIcon: Iconsax.heart,
-                suffixIcon: Iconsax.arrow_right_34,
-                onPress: () {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (_) => const Wishlist()));
-                },
-              )),
-          // recent search
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: ButtonLikeInput(
-                text: "Orders",
-                prefixIcon: Iconsax.shopping_cart,
-                suffixIcon: Iconsax.arrow_right_34,
-                onPress: () {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (_) => const Orders()));
-                },
-              )),
-          // activities header
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
-              child: const Text('Activities',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: CustomColor.green,
-                  ))),
-          // recent search
-          Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: ButtonLikeInput(
-                text: "Recent Search",
-                prefixIcon: Iconsax.refresh_right_square,
-                suffixIcon: Iconsax.arrow_right_34,
-                onPress: () {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (_) => const RecentSearch()));
-                },
-              )),
-          // pending rating
-          Container(
-              alignment: Alignment.topLeft,
-              child: ButtonLikeInput(
-                text: "Pending Rating",
-                prefixIcon: Iconsax.star,
-                suffixIcon: Iconsax.arrow_right_34,
-                onPress: () {
-                  Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                          builder: (_) => const PendingRating()));
-                },
-              )),
-          const SizedBox(
-            height: 20.0,
-          )
-        ],
+            // profile header
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 5.0),
+                child: const Text('Profile',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: CustomColor.green,
+                    ))),
+            // username input
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: Input(
+                    prefixIcon: Iconsax.user,
+                    hintText: "Username",
+                    isNotification: true,
+                    notification: infoMessages["required"]!,
+                    notificationIconColor: CustomColor.green)),
+            // first name input
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: Input(
+                    prefixIcon: Iconsax.user,
+                    hintText: "First Name",
+                    isNotification: true,
+                    notification: infoMessages["required"]!,
+                    notificationIconColor: CustomColor.green)),
+            // last name input
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: Input(
+                    prefixIcon: Iconsax.user,
+                    hintText: "Last Name",
+                    isNotification: true,
+                    notification: infoMessages["required"]!,
+                    notificationIconColor: CustomColor.green)),
+            // email address input
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: EmailInput(
+                    prefixIcon: Iconsax.sms,
+                    hintText: "Email Address",
+                    isNotification: true,
+                    notification: infoMessages["required"]!,
+                    notificationIconColor: CustomColor.green)),
+            // phone number input
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: const PhoneNumberInput(
+                  prefixIcon: Iconsax.call,
+                  hintText: "Phone Number",
+                )),
+            // birthday input
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: const DatePickerInput(
+                  prefixIcon: Iconsax.hospital,
+                  suffixIcon: Iconsax.calendar_1,
+                  hintText: "Birthday",
+                )),
+            // gender input
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: DropdownInput(
+                    text: "Gender",
+                    list: [genderChoice["female"]!, genderChoice["male"]!],
+                    prefixIcon: Iconsax.people)),
+            // university input
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: DropdownInput(
+                    text: "University",
+                    list: university,
+                    prefixIcon: Iconsax.teacher,
+                    dropdownHeight: 50,
+                    isNotification: true,
+                    notificationIconSize: 14.0,
+                    notification: infoMessages["required"]!,
+                    notificationIconColor: CustomColor.green)),
+            // state input
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: StateInput(
+                    isNotification: true,
+                    notificationIconSize: 12.0,
+                    notification: infoMessages["required"]!,
+                    notificationIconColor: CustomColor.green)),
+            // save profile form
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: Button(
+                    onPressed: () {},
+                    textColor: CustomColor.white,
+                    bgColor: CustomColor.green,
+                    text: "Save")),
+            // location header
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
+                child: const Text('Location',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: CustomColor.green,
+                    ))),
+            // address book
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: ButtonLikeInput(
+                  text: "Address Book",
+                  prefixIcon: Iconsax.map,
+                  suffixIcon: Iconsax.arrow_right_34,
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (_) => const AddressBook()));
+                  },
+                )),
+            // location
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: ButtonLikeInput(
+                  text: "Location",
+                  prefixIcon: Iconsax.location,
+                  suffixIcon: Iconsax.arrow_right_34,
+                  onPress: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (_) => const Location()));
+                  },
+                )),
+            // saved items header
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
+                child: const Text('Saved Items',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: CustomColor.green,
+                    ))),
+            // wishlist
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: ButtonLikeInput(
+                  text: "Wishlist",
+                  prefixIcon: Iconsax.heart,
+                  suffixIcon: Iconsax.arrow_right_34,
+                  onPress: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (_) => const Wishlist()));
+                  },
+                )),
+            // recent search
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: ButtonLikeInput(
+                  text: "Orders",
+                  prefixIcon: Iconsax.shopping_cart,
+                  suffixIcon: Iconsax.arrow_right_34,
+                  onPress: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (_) => const Orders()));
+                  },
+                )),
+            // activities header
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
+                child: const Text('Activities',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: CustomColor.green,
+                    ))),
+            // recent search
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: ButtonLikeInput(
+                  text: "Recent Search",
+                  prefixIcon: Iconsax.refresh_right_square,
+                  suffixIcon: Iconsax.arrow_right_34,
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (_) => const RecentSearch()));
+                  },
+                )),
+            // pending rating
+            Container(
+                alignment: Alignment.topLeft,
+                child: ButtonLikeInput(
+                  text: "Pending Rating",
+                  prefixIcon: Iconsax.star,
+                  suffixIcon: Iconsax.arrow_right_34,
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (_) => const PendingRating()));
+                  },
+                )),
+            const SizedBox(
+              height: 20.0,
+            )
+          ],
+        ),
       ),
     );
   }

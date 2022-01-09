@@ -31,7 +31,8 @@ class App extends StatelessWidget {
       theme: ThemeData(
           scaffoldBackgroundColor: CustomColor.white,
           colorScheme: ColorScheme.fromSwatch().copyWith(
-              secondary: CustomColor.green, primary: CustomColor.blue),
+              secondary: isDarkMode ? CustomColor.blue : CustomColor.green,
+              primary: CustomColor.blue),
           fontFamily: GoogleFonts.poppins().fontFamily,
           textTheme: customTextTheme(context)),
       home: const Profile(),

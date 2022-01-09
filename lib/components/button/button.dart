@@ -38,7 +38,7 @@ class _ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    
+
     return MaterialButton(
       padding: widget.padding,
       onPressed: widget.onPressed,
@@ -46,7 +46,7 @@ class _ButtonState extends State<Button> {
       textColor: widget.textColor,
       color: widget.bgColor,
       shape: RoundedRectangleBorder(
-        side: const BorderSide(color: CustomColor.gray, width: 0.0),
+        side: const BorderSide(color: Colors.transparent, width: 0.0),
         borderRadius: BorderRadius.circular(widget.borderRadius),
       ),
       minWidth: widget.width ?? width,
