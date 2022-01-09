@@ -46,14 +46,14 @@ class _ProfileState extends State<Profile> {
               height: (((((height / 100) * 10).toDouble()) / 2) * 1.2) / 1.5,
               decoration: const BoxDecoration(
                   border: Border(
-                      bottom: BorderSide(
-                          width: 1.0, color: CustomColor.darkGray))),
+                      bottom:
+                          BorderSide(width: 1.0, color: CustomColor.darkGray))),
               child: Row(
                 children: const [
                   Expanded(
                     flex: 1,
                     child: Icon(
-                      Iconsax.search_normal,
+                      Iconsax.search_status_1,
                       color: CustomColor.darkGray,
                       size: 18.0,
                     ),
