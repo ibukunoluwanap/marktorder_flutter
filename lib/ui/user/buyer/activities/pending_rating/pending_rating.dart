@@ -46,7 +46,6 @@ class _PendingRatingState extends State<PendingRating> {
           ),
           SliverList(
               delegate: SliverChildListDelegate([
-            const SizedBox(height: 10.0),
             addressBookCard(),
             const SizedBox(height: 90.0),
           ]))
