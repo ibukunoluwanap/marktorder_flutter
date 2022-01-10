@@ -17,6 +17,9 @@ class Input extends StatefulWidget {
 
   // size
   final double notificationIconSize;
+  final int? minLines;
+  final int? maxLines;
+  final int? maxLength;
 
   // condition
   final bool isNotification;
@@ -40,6 +43,9 @@ class Input extends StatefulWidget {
 
       // size
       this.notificationIconSize = 16.0,
+      this.minLines,
+      this.maxLines,
+      this.maxLength,
 
       // condition
       this.isNotification = false,
@@ -61,6 +67,9 @@ class _InputState extends State<Input> {
       TextFormField(
         keyboardAppearance: widget.keyboardAppearance,
         keyboardType: widget.keyboardType,
+        minLines: widget.minLines,
+        maxLines: widget.maxLines,
+        maxLength: widget.maxLength,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         cursorColor: CustomColor.blue,
         style: const TextStyle(

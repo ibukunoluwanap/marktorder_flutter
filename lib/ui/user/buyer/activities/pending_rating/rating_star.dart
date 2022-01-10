@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:marktorder/components/button/button.dart';
+import 'package:marktorder/components/inputs/input.dart';
 import 'package:marktorder/components/navigation/app_bar.dart';
 import 'package:marktorder/utils/colors.dart';
 
@@ -61,7 +63,6 @@ class _RatingStarState extends State<RatingStar> {
           width: width,
           height: cardHeight,
           margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-          // padding: const EdgeInsets.all(10.0),
           decoration: const BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -117,7 +118,22 @@ class _RatingStarState extends State<RatingStar> {
             ],
           ),
         ),
-
+        Container(
+          width: width,
+          margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: const Input(
+            keyboardType: TextInputType.multiline,
+            minLines: 6,
+            maxLines: null,
+            maxLength: 250,
+            hintText: "Write a review (optional)",
+          ),
+        ),
+        Container(
+          width: width,
+          margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Button(text: "Submit Review", onPressed: () {}),
+        )
       ],
     );
   }

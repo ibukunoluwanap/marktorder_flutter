@@ -21,7 +21,7 @@ class Button extends StatefulWidget {
     required this.onPressed,
     this.elevation = 0.0,
     this.padding = const EdgeInsets.all(18.0),
-    this.textColor = CustomColor.blue,
+    this.textColor = CustomColor.white,
     this.bgColor = CustomColor.green,
     this.borderRadius = 10.0,
     this.fontSize = 20.0,
