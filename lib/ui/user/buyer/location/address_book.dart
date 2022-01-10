@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:marktorder/components/button/button.dart';
+import 'package:marktorder/components/buttons/button.dart';
 import 'package:marktorder/components/navigation/app_bar.dart';
 import 'package:marktorder/utils/colors.dart';
 import 'package:marktorder/utils/test_api.dart';
@@ -49,7 +49,6 @@ class _AddressBookState extends State<AddressBook> {
           ]))
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         isExtended: true,

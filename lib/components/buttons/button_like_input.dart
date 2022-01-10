@@ -16,7 +16,7 @@ class ButtonLikeInput extends StatefulWidget {
   final String notification;
 
   // position
-  final TextAlign textPosition;
+  final TextAlign textAlign;
 
   // function
   final Function()? onPress;
@@ -36,7 +36,7 @@ class ButtonLikeInput extends StatefulWidget {
     this.notification = "",
 
     // text position
-    this.textPosition = TextAlign.left,
+    this.textAlign = TextAlign.left,
 
     // function
     this.onPress,
@@ -72,7 +72,8 @@ class _ButtonLikeInputState extends State<ButtonLikeInput> {
                 flex: 9,
                 child: Text(
                   widget.text,
-                  textAlign: widget.textPosition,
+                  textAlign: widget.textAlign,
+                  overflow: TextOverflow.ellipsis,
                 )),
             Expanded(
                 flex: 1,

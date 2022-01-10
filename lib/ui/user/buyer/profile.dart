@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:marktorder/components/button/button.dart';
-import 'package:marktorder/components/button/button_like_input.dart';
+import 'package:marktorder/components/buttons/button.dart';
+import 'package:marktorder/components/buttons/button_like_input.dart';
 import 'package:marktorder/components/inputs/dropdown_input.dart';
 import 'package:marktorder/components/inputs/input.dart';
 import 'package:marktorder/components/inputs/date_picker_input.dart';

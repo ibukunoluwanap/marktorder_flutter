@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:marktorder/components/button/button.dart';
+import 'package:marktorder/components/buttons/button.dart';
 import 'package:marktorder/components/inputs/input.dart';
 import 'package:marktorder/components/navigation/app_bar.dart';
 import 'package:marktorder/utils/colors.dart';
@@ -45,7 +45,7 @@ class _RatingStarState extends State<RatingStar> {
           SliverList(
               delegate: SliverChildListDelegate([
             const SizedBox(height: 10.0),
-            addressBookCard(),
+            ratingStarCard(),
             const SizedBox(height: 90.0),
           ]))
         ],
@@ -53,7 +53,7 @@ class _RatingStarState extends State<RatingStar> {
     );
   }
 
-  Widget addressBookCard() {
+  Widget ratingStarCard() {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     double cardHeight = ((height / 100) * 20).toDouble();
