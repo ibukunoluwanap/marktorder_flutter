@@ -7,6 +7,8 @@ class Input extends StatefulWidget {
   // icon
   final IconData? suffixIcon;
   final IconData? prefixIcon;
+  final EdgeInsetsGeometry? suffixIconPadding;
+  final EdgeInsetsGeometry prefixIconPadding;
 
   // color
   final Color notificationIconColor;
@@ -33,6 +35,9 @@ class Input extends StatefulWidget {
       {Key? key, // icon
       this.suffixIcon,
       this.prefixIcon,
+      this.suffixIconPadding,
+      this.prefixIconPadding =
+          const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
 
       // color
       this.notificationIconColor = CustomColor.orange,
@@ -80,8 +85,7 @@ class _InputState extends State<Input> {
           hintText: widget.hintText,
           prefixIconConstraints: const BoxConstraints(minWidth: 0.0),
           prefixIcon: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+            padding: widget.prefixIconPadding,
             child: Icon(widget.prefixIcon, color: CustomColor.darkGray),
           ),
           border: const OutlineInputBorder(),

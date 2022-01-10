@@ -4,6 +4,7 @@ import 'package:marktorder/components/button/button.dart';
 import 'package:marktorder/components/inputs/input.dart';
 import 'package:marktorder/components/navigation/app_bar.dart';
 import 'package:marktorder/utils/colors.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class RatingStar extends StatefulWidget {
   const RatingStar({Key? key}) : super(key: key);
@@ -118,6 +119,9 @@ class _RatingStarState extends State<RatingStar> {
             ],
           ),
         ),
+        const SizedBox(
+          height: 10.0,
+        ),
         Container(
           width: width,
           margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
@@ -127,7 +131,27 @@ class _RatingStarState extends State<RatingStar> {
             maxLines: null,
             maxLength: 250,
             hintText: "Write a review (optional)",
+            prefixIconPadding: EdgeInsets.all(0.0),
           ),
+        ),
+        const SizedBox(
+          height: 10.0,
+        ),
+        RatingBar.builder(
+          initialRating: 0,
+          minRating: 1,
+          direction: Axis.horizontal,
+          allowHalfRating: true,
+          itemCount: 5,
+          itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+          itemBuilder: (context, _) => const Icon(
+            Iconsax.star1,
+            color: Colors.amber,
+          ),
+          onRatingUpdate: (rating) {},
+        ),
+        const SizedBox(
+          height: 10.0,
         ),
         Container(
           width: width,
