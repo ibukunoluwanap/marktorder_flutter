@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marktorder/components/buttons/button.dart';
 import 'package:marktorder/components/buttons/button_like_input.dart';
+import 'package:marktorder/components/image_display/view_image.dart';
 import 'package:marktorder/components/inputs/dropdown_input.dart';
 import 'package:marktorder/components/inputs/input.dart';
 import 'package:marktorder/components/inputs/date_picker_input.dart';
@@ -19,6 +20,7 @@ import 'package:marktorder/ui/user/buyer/saved_items/wishlist.dart';
 import 'package:marktorder/utils/colors.dart';
 import 'package:marktorder/utils/global.dart';
 import 'package:marktorder/utils/test_api.dart';
+import 'package:photo_view/photo_view.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -40,9 +42,7 @@ class _ProfileState extends State<Profile> {
         CustomAppBar(
           leadingIcon: Iconsax.arrow_left,
           leadingIconOnPress: () {},
-          title: InkWell(
-            highlightColor: Colors.transparent,
-            splashColor: Colors.transparent,
+          title: GestureDetector(
             onTap: () {},
             child: Container(
               alignment: Alignment.bottomLeft,
@@ -105,10 +105,14 @@ class _ProfileState extends State<Profile> {
     //building banner
     Widget banner() {
       return Stack(children: [
-        InkWell(
-          highlightColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          onTap: () {},
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ViewImage(
+                        image: AssetImage(userApi["banner"].toString()))));
+          },
           child: SizedBox(
             width: width,
             height: bannerHeight * 1.2,
@@ -147,11 +151,15 @@ class _ProfileState extends State<Profile> {
           child: Padding(
             padding: const EdgeInsets.only(left: 10.0),
             child: Stack(clipBehavior: Clip.none, children: [
-              InkWell(
-                onTap: () {},
-                radius: avatarOutterRadius,
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ViewImage(
+                              image:
+                                  AssetImage(userApi["avatar"].toString()))));
+                },
                 child: CircleAvatar(
                   radius: avatarOutterRadius,
                   backgroundColor: CustomColor.white,

@@ -19,11 +19,11 @@ class App extends StatelessWidget {
 
     // setting status and navigation bar colors
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: isDarkMode ? CustomColor.blue : CustomColor.green,
       systemNavigationBarColor:
           isDarkMode ? CustomColor.blue : CustomColor.white,
       systemNavigationBarDividerColor:
           isDarkMode ? CustomColor.blue : CustomColor.white,
-      statusBarColor: isDarkMode ? CustomColor.blue : CustomColor.green,
     ));
     return MaterialApp(
       color: isDarkMode ? CustomColor.blue : CustomColor.green,

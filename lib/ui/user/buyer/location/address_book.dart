@@ -51,8 +51,6 @@ class _AddressBookState extends State<AddressBook> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        isExtended: true,
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         tooltip: 'Add New Address',
         child: const Icon(
           Iconsax.add,
