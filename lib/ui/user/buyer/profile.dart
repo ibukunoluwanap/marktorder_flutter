@@ -1,5 +1,6 @@
+import 'dart:io';
 import 'dart:ui';
-
+import 'package:blur/blur.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -14,6 +15,7 @@ import 'package:marktorder/components/inputs/email_input.dart';
 import 'package:marktorder/components/inputs/phone_number_input.dart';
 import 'package:marktorder/components/inputs/state_input.dart';
 import 'package:marktorder/components/navigation/app_bar.dart';
+import 'package:marktorder/components/notification/snackbar_notification.dart';
 import 'package:marktorder/ui/user/buyer/activities/pending_rating/pending_rating.dart';
 import 'package:marktorder/ui/user/buyer/activities/recent_search.dart';
 import 'package:marktorder/ui/user/buyer/location/address_book.dart';
@@ -33,23 +35,27 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   final ImagePicker _picker = ImagePicker();
-  XFile? _image;
+  var _avatarImage;
 
   _imgFromCamera() async {
-    final XFile? image =
-        await _picker.pickImage(source: ImageSource.camera, imageQuality: 50);
+    final XFile? image = await _picker.pickImage(
+        source: ImageSource.camera,
+        imageQuality: 50,
+        preferredCameraDevice: CameraDevice.front);
 
     setState(() {
-      _image = image;
+      _avatarImage = File(image?.path as String);
     });
   }
 
   _imgFromGallery() async {
-    final XFile? image =
-        await _picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
+    final XFile? image = await _picker.pickImage(
+        source: ImageSource.gallery,
+        imageQuality: 50,
+        preferredCameraDevice: CameraDevice.front);
 
     setState(() {
-      _image = image;
+      _avatarImage = File(image?.path as String);
     });
   }
 
@@ -164,72 +170,56 @@ class _ProfileState extends State<Profile> {
   Widget profileHeader() {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    double bannerHeight = ((height / 100) * 10).toDouble();
-    double bannerWidth = width.toDouble();
+    double avatarBannerHeight = ((height / 100) * 10).toDouble();
+    double avatarBannerWidth = width.toDouble();
 
-    final avatarTop = bannerHeight - (bannerHeight / 2);
-    final avatarInnerRadius = bannerHeight / 1.4;
-    final avatarOutterRadius = bannerHeight / 1.36;
+    final avatarTop = avatarBannerHeight - (avatarBannerHeight / 2);
+    final avatarInnerRadius = avatarBannerHeight / 1.4;
+    final avatarOutterRadius = avatarBannerHeight / 1.36;
 
-    //building banner
-    Widget banner() {
-      return Stack(children: [
-        GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => ViewImage(
-                        image: AssetImage(userApi["banner"].toString()))));
-          },
-          child: SizedBox(
-            width: width,
-            height: bannerHeight * 1.2,
-            child: Image.asset(
-              userApi["banner"].toString(),
-              fit: BoxFit.cover,
-            ),
-          ),
+    //building avatar banner
+    Widget avatarBanner() {
+      return Blur(
+        blurColor: CustomColor.blue,
+        child: SizedBox(
+          width: width,
+          height: avatarBannerHeight * 1.2,
+          child: _avatarImage != null
+              ? Image.file(
+                  _avatarImage,
+                  fit: BoxFit.cover,
+                )
+              : Image.asset(
+                  "assets/images/image_placeholder.png",
+                  fit: BoxFit.cover,
+                ),
         ),
-        Positioned(
-          bottom: 0.0,
-          right: 0.0,
-          child: MaterialButton(
-            padding: const EdgeInsets.all(2.0),
-            minWidth: 0.0,
-            height: 0.0,
-            elevation: 0.0,
-            highlightColor: Colors.transparent,
-            splashColor: Colors.transparent,
-            onPressed: () {
-              _showImagePicker(context);
-            },
-            color: CustomColor.blue,
-            shape: const CircleBorder(),
-            child: const Icon(
-              Iconsax.add,
-              color: CustomColor.green,
-              size: 20.0,
-            ),
-          ),
-        ),
-      ]);
+      );
     }
 
     // bulding avatar
-    Widget avatar() => Positioned(
+    Widget avatar() => Positioned.fill(
           top: avatarTop,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 10.0),
+          child: Align(
+            alignment: Alignment.center,
             child: Stack(clipBehavior: Clip.none, children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ViewImage(
-                              image:
-                                  AssetImage(userApi["avatar"].toString()))));
+                  _avatarImage != null
+                      ? Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ViewImage(image: FileImage(_avatarImage))))
+                      : Padding(
+                          padding: const EdgeInsets.all(100.0),
+                          child: const SnackBarNotification(
+                                  message: "Upload an avatar!",
+                                  mode: "MODERN",
+                                  textSize: 12.0,
+                                  isIcon: false)
+                              .show(context),
+                        );
                 },
                 child: CircleAvatar(
                   radius: avatarOutterRadius,
@@ -237,7 +227,11 @@ class _ProfileState extends State<Profile> {
                   child: CircleAvatar(
                     radius: avatarInnerRadius,
                     backgroundColor: CustomColor.gray,
-                    backgroundImage: AssetImage(userApi["avatar"].toString()),
+                    backgroundImage: _avatarImage != null
+                        ? FileImage(_avatarImage)
+                        : const AssetImage(
+                            "assets/images/image_placeholder.png",
+                          ) as ImageProvider,
                   ),
                 ),
               ),
@@ -254,7 +248,7 @@ class _ProfileState extends State<Profile> {
                     onPressed: () {
                       _showImagePicker(context);
                     },
-                    color: CustomColor.white,
+                    color: CustomColor.blue,
                     shape: const CircleBorder(),
                     child: const Icon(
                       Iconsax.add,
@@ -267,12 +261,12 @@ class _ProfileState extends State<Profile> {
 
     // return widget
     return SizedBox(
-      width: bannerWidth,
-      height: bannerHeight * 2,
+      width: avatarBannerWidth,
+      height: avatarBannerHeight * 2,
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          banner(),
+          avatarBanner(),
           avatar(),
         ],
       ),
@@ -287,10 +281,10 @@ class _ProfileState extends State<Profile> {
         children: [
           // user information
           Container(
-            alignment: Alignment.topLeft,
+            alignment: Alignment.topCenter,
             margin: const EdgeInsets.only(bottom: 10.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                     "${firstUpper(userApi["first_name"].toString())} ${firstUpper(userApi["last_name"].toString())}",
@@ -300,7 +294,7 @@ class _ProfileState extends State<Profile> {
                       fontWeight: FontWeight.w600,
                       color: CustomColor.blue,
                     )),
-                Text(userApi["username"].toString().toLowerCase(),
+                Text("@${userApi["username"].toString().toLowerCase()}",
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       fontSize: 14,

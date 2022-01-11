@@ -23,7 +23,7 @@ class _ViewImageState extends State<ViewImage> {
           color: CustomColor.white,
           child: Center(
             child: PhotoView(
-              minScale: 0.5,
+              minScale: 0.3,
               imageProvider: widget.image,
             ),
           ),
