@@ -14,25 +14,19 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var brightness = WidgetsBinding.instance!.window.platformBrightness;
-    final bool isDarkMode = brightness == Brightness.dark;
-
     // setting status and navigation bar colors
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: isDarkMode ? CustomColor.blue : CustomColor.green,
-      systemNavigationBarColor:
-          isDarkMode ? CustomColor.blue : CustomColor.white,
-      systemNavigationBarDividerColor:
-          isDarkMode ? CustomColor.blue : CustomColor.white,
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: CustomColor.white,
+      systemNavigationBarColor: CustomColor.white,
+      systemNavigationBarDividerColor: CustomColor.white,
     ));
     return MaterialApp(
-      color: isDarkMode ? CustomColor.blue : CustomColor.green,
+      color: CustomColor.green,
       title: 'MarktOrder',
       theme: ThemeData(
           scaffoldBackgroundColor: CustomColor.white,
           colorScheme: ColorScheme.fromSwatch().copyWith(
-              secondary: isDarkMode ? CustomColor.blue : CustomColor.green,
-              primary: CustomColor.blue),
+              secondary: CustomColor.green, primary: CustomColor.blue),
           fontFamily: GoogleFonts.poppins().fontFamily,
           textTheme: customTextTheme(context)),
       home: const Profile(),

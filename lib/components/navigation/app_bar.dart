@@ -45,17 +45,13 @@ class _CustomAppBarState extends State<CustomAppBar> {
     double bannerHeight = ((height / 100) * 10).toDouble();
     double toolbarHeight = (bannerHeight / 2) * 1.2;
 
-    // color theme
-    var brightness = WidgetsBinding.instance!.window.platformBrightness;
-    final bool isDarkMode = brightness == Brightness.dark;
-
     return SliverAppBar(
       floating: widget.floating,
       pinned: widget.pinned,
       snap: widget.snap,
       elevation: 0.0,
-      backgroundColor: isDarkMode ? CustomColor.blue : CustomColor.green,
-      foregroundColor: CustomColor.white,
+      backgroundColor: CustomColor.white,
+      foregroundColor: CustomColor.green,
       toolbarHeight: toolbarHeight,
       expandedHeight: toolbarHeight,
       leading: IconButton(
