@@ -123,7 +123,6 @@ class _InputState extends State<Input> {
                       padding: const EdgeInsets.all(100.0),
                       child: SnackBarNotification(
                               message: widget.notification,
-                              mode: "MODERN",
                               bgColor: widget.notificationIconColor,
                               isIcon: false)
                           .show(context),

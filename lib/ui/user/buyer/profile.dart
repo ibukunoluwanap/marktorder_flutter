@@ -118,7 +118,9 @@ class _ProfileState extends State<Profile> {
       slivers: [
         CustomAppBar(
           leadingIcon: Iconsax.arrow_left,
-          leadingIconOnPress: () {},
+          leadingIconOnPress: () {
+            Navigator.of(context).pop();
+          },
           title: GestureDetector(
             onTap: () {},
             child: Container(
@@ -217,9 +219,7 @@ class _ProfileState extends State<Profile> {
                       : Padding(
                           padding: const EdgeInsets.all(100.0),
                           child: const SnackBarNotification(
-                                  message: "Upload an avatar!",
-                                  mode: "MODERN",
-                                  isIcon: false)
+                                  message: "Upload an avatar!", isIcon: false)
                               .show(context),
                         );
                 },

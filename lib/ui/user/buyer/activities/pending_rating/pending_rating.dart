@@ -150,7 +150,6 @@ class _PendingRatingState extends State<PendingRating> {
                     onPressed: () {
                       const SnackBarNotification(
                               message: "This item has been delivered!",
-                              mode: "MODERN",
                               bgColor: CustomColor.green,
                               isIcon: false)
                           .show(context);

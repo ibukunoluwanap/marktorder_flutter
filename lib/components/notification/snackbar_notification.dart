@@ -70,7 +70,7 @@ class SnackBarNotification {
     this.onClick,
     // others :)
     this.type = "SUCCESS",
-    this.mode = "BASIC",
+    this.mode = "MODERN",
     this.closeIconPosition = "NORMAL",
     this.icon,
     this.child,

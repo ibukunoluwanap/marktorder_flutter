@@ -26,7 +26,9 @@ class _AddressBookEditState extends State<AddressBookEdit> {
         CustomAppBar(
           pinned: false,
           leadingIcon: Iconsax.arrow_left,
-          leadingIconOnPress: () {},
+          leadingIconOnPress: () {
+            Navigator.of(context).pop();
+          },
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
@@ -41,7 +43,7 @@ class _AddressBookEditState extends State<AddressBookEdit> {
               ),
             ],
           ),
-          actionIcon: Iconsax.setting_2,
+          actionIcon: Iconsax.search_normal_1,
           actionIconOnPress: () {},
         ),
         SliverList(

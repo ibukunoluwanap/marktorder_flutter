@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marktorder/components/buttons/button.dart';
 import 'package:marktorder/components/navigation/app_bar.dart';
+import 'package:marktorder/components/notification/snackbar_notification.dart';
 import 'package:marktorder/ui/user/buyer/location/address_book_edit.dart';
 import 'package:marktorder/utils/colors.dart';
 import 'package:marktorder/utils/test_api.dart';
@@ -186,11 +187,17 @@ class _AddressBookState extends State<AddressBook> {
                     highlightColor: Colors.transparent,
                     padding: const EdgeInsets.all(0.0),
                     alignment: Alignment.centerRight,
-                    icon: const Icon(
+                    icon: Icon(
                       Iconsax.trash,
-                      color: CustomColor.red,
+                      color: isPrimary ? CustomColor.darkGray : CustomColor.red,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      isPrimary
+                          ? const SnackBarNotification(
+                              message: "Primary address can not be removed!",
+                            ).show(context)
+                          : null;
+                    },
                   )),
               Positioned(
                   top: 0.0,

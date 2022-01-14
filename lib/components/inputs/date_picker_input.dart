@@ -82,7 +82,8 @@ class _DatePickerInputState extends State<DatePickerInput> {
                             ),
                             titleTextStyle:
                                 const TextStyle(color: CustomColor.blue),
-                            title: const Text("This date cannot be selected."),
+                            title: const Center(
+                                child: Text("This date cannot be selected.")),
                           ));
                 }
               }
@@ -134,7 +135,6 @@ class _DatePickerInputState extends State<DatePickerInput> {
                       padding: const EdgeInsets.all(100.0),
                       child: SnackBarNotification(
                               message: widget.notification,
-                              mode: "MODERN",
                               bgColor: widget.notificationIconColor,
                               isIcon: false)
                           .show(context),
