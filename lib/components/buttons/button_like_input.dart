@@ -96,7 +96,6 @@ class _ButtonLikeInputState extends State<ButtonLikeInput> {
                               message: widget.notification,
                               mode: "MODERN",
                               bgColor: widget.notificationIconColor,
-                              textSize: 12.0,
                               isIcon: false)
                           .show(context),
                     );

@@ -18,6 +18,7 @@ final userApi = {
   "last_name": "ifebunso",
   "email": "pandoraloveth17@gmail.com",
   "phone_number": "+2349018398960",
+  "additional_phone_number": "",
   "birthday": "2022-01-01",
   "gender": "female",
   "university": "benson idahosa university",
@@ -193,7 +194,7 @@ final addressBookApi = [
     "last_name": "Ifebunso",
     "address": "No: 14 bole street yola YOLA-CENTRAL LOCATIONS, Adamawa",
     "phone_number": "+2349018398960",
-    "other_phone_number": "+2347039330833",
+    "additional_phone_number": "+2347039330833",
     "is_primary": true,
   },
   {
@@ -202,7 +203,7 @@ final addressBookApi = [
     "last_name": "Naphtali",
     "address": "No 33 Adeyi Street, Old bodija IBADAN-BODIJA, Oyo",
     "phone_number": "+2349018398960",
-    "other_phone_number": "+2348120051529",
+    "additional_phone_number": "+2348120051529",
     "is_primary": false,
   },
 ];

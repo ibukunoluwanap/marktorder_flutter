@@ -152,7 +152,6 @@ class _PendingRatingState extends State<PendingRating> {
                               message: "This item has been delivered!",
                               mode: "MODERN",
                               bgColor: CustomColor.green,
-                              textSize: 12.0,
                               isIcon: false)
                           .show(context);
                     }),

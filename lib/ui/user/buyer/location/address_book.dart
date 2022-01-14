@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marktorder/components/buttons/button.dart';
 import 'package:marktorder/components/navigation/app_bar.dart';
+import 'package:marktorder/ui/user/buyer/location/address_book_edit.dart';
 import 'package:marktorder/utils/colors.dart';
 import 'package:marktorder/utils/test_api.dart';
 
@@ -56,7 +58,7 @@ class _AddressBookState extends State<AddressBook> {
           Iconsax.add,
           color: CustomColor.white,
         ),
-        backgroundColor: CustomColor.blue,
+        backgroundColor: CustomColor.green,
       ),
     );
   }
@@ -78,7 +80,7 @@ class _AddressBookState extends State<AddressBook> {
                 "${item['first_name'].toString()} ${item['last_name'].toString()}";
             final address = item['address'].toString();
             final phoneNumber =
-                "${item['phone_number'].toString()} / ${item['other_phone_number'].toString() != "" ? item['other_phone_number'].toString() : ""}";
+                "${item['phone_number'].toString()} / ${item['additional_phone_number'].toString() != "" ? item['additional_phone_number'].toString() : ""}";
             bool isPrimary = item['is_primary'] as bool;
 
             return Stack(children: [
@@ -202,7 +204,12 @@ class _AddressBookState extends State<AddressBook> {
                       Iconsax.brush_4,
                       color: CustomColor.green,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (_) => const AddressBookEdit()));
+                    },
                   ))
             ]);
           }),

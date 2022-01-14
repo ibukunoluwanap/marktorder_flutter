@@ -82,7 +82,6 @@ class _StateInputState extends State<StateInput> {
                               message: widget.notification,
                               mode: "MODERN",
                               bgColor: widget.notificationIconColor,
-                              textSize: 12.0,
                               isIcon: false)
                           .show(context),
                     );

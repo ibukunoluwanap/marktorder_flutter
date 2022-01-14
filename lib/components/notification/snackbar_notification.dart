@@ -49,8 +49,8 @@ class SnackBarNotification {
     this.textAlign = TextAlign.left,
     this.fontWeight = FontWeight.w500,
     // size
-    this.titleSize = 18,
-    this.textSize = 16,
+    this.titleSize = 18.0,
+    this.textSize = 14.0,
     this.iconSize = 24.0,
     // color
     this.textColor = const Color(0xFFffffff),

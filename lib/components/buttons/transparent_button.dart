@@ -59,6 +59,7 @@ class _TransparentButtonState extends State<TransparentButton> {
       elevation: widget.elevation,
       textColor: widget.textColor,
       color: widget.bgColor,
+      highlightColor: CustomColor.white,
       shape: RoundedRectangleBorder(
         side: const BorderSide(color: Colors.transparent, width: 0.0),
         borderRadius: BorderRadius.circular(widget.borderRadius),
