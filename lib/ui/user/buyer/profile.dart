@@ -164,6 +164,7 @@ class _ProfileState extends State<Profile> {
             delegate: SliverChildListDelegate([
           profileHeader(),
           profile(),
+          const SizedBox(height: 20.0),
         ]))
       ],
     ));
@@ -535,9 +536,6 @@ class _ProfileState extends State<Profile> {
                           builder: (_) => const PendingRating()));
                 },
               )),
-          const SizedBox(
-            height: 20.0,
-          )
         ],
       ),
     );
