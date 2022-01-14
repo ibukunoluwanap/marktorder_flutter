@@ -66,7 +66,6 @@ class _ProfileState extends State<Profile> {
     showMaterialModalBottomSheet(
         context: context,
         backgroundColor: Colors.transparent,
-        barrierColor: Colors.transparent,
         builder: (BuildContext context) {
           return ClipRRect(
             child: BackdropFilter(
@@ -118,7 +117,7 @@ class _ProfileState extends State<Profile> {
         body: CustomScrollView(
       slivers: [
         CustomAppBar(
-          leadingIcon: Iconsax.arrow_left,
+          leadingIcon: Iconsax.arrow_left_24,
           leadingIconOnPress: () {
             Navigator.of(context).pop();
           },

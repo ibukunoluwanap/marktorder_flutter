@@ -21,7 +21,7 @@ class _RatingStarState extends State<RatingStar> {
         slivers: [
           CustomAppBar(
             pinned: false,
-            leadingIcon: Iconsax.arrow_left,
+            leadingIcon: Iconsax.arrow_left_24,
             leadingIconOnPress: () {
               Navigator.of(context).pop();
             },

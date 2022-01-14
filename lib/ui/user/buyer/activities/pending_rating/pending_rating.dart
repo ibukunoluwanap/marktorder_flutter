@@ -23,7 +23,7 @@ class _PendingRatingState extends State<PendingRating> {
         slivers: [
           CustomAppBar(
             pinned: false,
-            leadingIcon: Iconsax.arrow_left,
+            leadingIcon: Iconsax.arrow_left_24,
             leadingIconOnPress: () {
               Navigator.of(context).pop();
             },

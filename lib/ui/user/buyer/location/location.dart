@@ -1,5 +1,10 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:marktorder/components/buttons/button_like_input.dart';
 import 'package:marktorder/utils/colors.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class Location extends StatefulWidget {
   const Location({Key? key}) : super(key: key);
@@ -11,20 +16,111 @@ class Location extends StatefulWidget {
 class _LocationState extends State<Location> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const Text(
-            "Location",
-            style: TextStyle(color: CustomColor.green),
-          ),
-          TextButton(
+    // height
+    double height = MediaQuery.of(context).size.height;
+    double bannerHeight = ((height / 100) * 10).toDouble();
+    double toolbarHeight = (bannerHeight / 2) * 1.2;
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+      ),
+      child: Stack(children: [
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            foregroundColor: CustomColor.green,
+            toolbarHeight: toolbarHeight,
+            elevation: 0.0,
+            leading: IconButton(
+              padding: EdgeInsets.zero,
+              icon: const Icon(Iconsax.arrow_left_24),
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("Back"))
-        ],
-      ),
+            ),
+            title: Container(
+              color: Colors.transparent,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    "Location & Map",
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Text(
+                    "@pandoraloveth",
+                    style:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.w300),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          body: locationMap(),
+          extendBody: true,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            tooltip: 'Current Location',
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: const Icon(
+              Icons.my_location_rounded,
+              color: CustomColor.green,
+            ),
+            backgroundColor: CustomColor.white,
+          ),
+          bottomNavigationBar: Container(
+            decoration: const BoxDecoration(
+              color: CustomColor.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+            ),
+            padding: const EdgeInsets.all(10.0),
+            child: ButtonLikeInput(
+              onPress: () {
+                _searchMapPicker(context);
+              },
+              prefixIcon: Iconsax.location,
+              text: "Find sellers near you",
+            ),
+          ),
+        ),
+      ]),
+    );
+  }
+
+  _searchMapPicker(context) {
+    double height = MediaQuery.of(context).size.height;
+    showCupertinoModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.transparent,
+        topRadius: const Radius.circular(20.0),
+        builder: (BuildContext context) => ClipRRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                child: Container(
+                  height: height / 1.5,
+                  color: CustomColor.white,
+                ),
+              ),
+            ));
+  }
+
+  Widget locationMap() {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+    return Container(
+      color: CustomColor.red,
+      width: width,
+      height: height,
     );
   }
 }

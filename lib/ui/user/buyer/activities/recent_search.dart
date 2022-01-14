@@ -21,7 +21,7 @@ class _RecentSearchState extends State<RecentSearch> {
         slivers: [
           CustomAppBar(
             pinned: false,
-            leadingIcon: Iconsax.arrow_left,
+            leadingIcon: Iconsax.arrow_left_24,
             leadingIconOnPress: () {
               Navigator.of(context).pop();
             },
@@ -56,7 +56,6 @@ class _RecentSearchState extends State<RecentSearch> {
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         tooltip: 'Clear Recent Search',
         shape: RoundedRectangleBorder(
-          side: const BorderSide(color: Colors.transparent, width: 0.0),
           borderRadius: BorderRadius.circular(10.0),
         ),
         label: Row(

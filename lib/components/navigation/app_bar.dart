@@ -13,6 +13,10 @@ class CustomAppBar extends StatefulWidget {
   final IconData? actionIcon;
   final Function()? actionIconOnPress;
 
+  // color
+  final Color backgroundColor;
+  final Color foregroundColor;
+
   // widget
   final Widget title;
 
@@ -28,6 +32,10 @@ class CustomAppBar extends StatefulWidget {
     this.leadingIconOnPress,
     this.actionIcon,
     this.actionIconOnPress,
+
+    // color
+    this.backgroundColor = CustomColor.white,
+    this.foregroundColor = CustomColor.green,
 
     // widget
     required this.title,
@@ -50,8 +58,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
       pinned: widget.pinned,
       snap: widget.snap,
       elevation: 0.0,
-      backgroundColor: CustomColor.white,
-      foregroundColor: CustomColor.green,
+      backgroundColor: widget.backgroundColor,
+      foregroundColor: widget.foregroundColor,
       toolbarHeight: toolbarHeight,
       expandedHeight: toolbarHeight,
       leading: IconButton(
