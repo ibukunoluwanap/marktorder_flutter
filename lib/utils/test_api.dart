@@ -19,6 +19,8 @@ final userApi = {
   "email": "pandoraloveth17@gmail.com",
   "phone_number": "+2349018398960",
   "additional_phone_number": "",
+  "address": "No: 14 bole street yola YOLA-CENTRAL LOCATIONS, Adamawa",
+  "additional_address": "",
   "birthday": "2022-01-01",
   "gender": "female",
   "university": "benson idahosa university",

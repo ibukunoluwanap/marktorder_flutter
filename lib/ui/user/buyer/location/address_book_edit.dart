@@ -96,10 +96,12 @@ class _AddressBookEditState extends State<AddressBookEdit> {
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
               child: PhoneNumberInput(
-                prefixIcon: Iconsax.call,
-                hintText: firstUpper(userApi["phone_number"].toString()) ??
-                    "Phone Number",
-              )),
+                  prefixIcon: Iconsax.call,
+                  hintText: firstUpper(userApi["phone_number"].toString()) ??
+                      "Phone Number",
+                  isNotification: true,
+                  notification: infoMessages["required"]!,
+                  notificationIconColor: CustomColor.green)),
           // additional phone number input
           Container(
               alignment: Alignment.topLeft,
@@ -115,12 +117,22 @@ class _AddressBookEditState extends State<AddressBookEdit> {
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(bottom: 10.0),
               child: Input(
-                  prefixIcon: Iconsax.user,
-                  hintText: firstUpper(userApi["last_name"].toString()) ??
-                      "Address",
+                  prefixIcon: Iconsax.map,
+                  hintText:
+                      firstUpper(userApi["address"].toString()) ?? "Address",
                   isNotification: true,
                   notification: infoMessages["required"]!,
                   notificationIconColor: CustomColor.green)),
+          // additional input
+          Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: Input(
+                prefixIcon: Iconsax.map,
+                hintText:
+                    firstUpper(userApi["additional_address"].toString()) ??
+                        "Additional Address",
+              )),
 
           // university input
           Container(
