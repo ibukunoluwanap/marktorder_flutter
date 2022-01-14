@@ -27,6 +27,7 @@ import 'package:marktorder/ui/user/buyer/saved_items/wishlist.dart';
 import 'package:marktorder/utils/colors.dart';
 import 'package:marktorder/utils/global.dart';
 import 'package:marktorder/utils/test_api.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class _ProfileState extends State<Profile> {
   }
 
   _showImagePicker(context) {
-    showModalBottomSheet(
+    showMaterialModalBottomSheet(
         context: context,
         backgroundColor: Colors.transparent,
         barrierColor: Colors.transparent,
