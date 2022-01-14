@@ -49,7 +49,14 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Allow access to camera to capture photos</string>
 
+	<!-- access to mic -->
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow access to microphone</string>
+
+	<!-- flutter embedded -->
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+
+	<!-- location -->
 </dict>
 </plist>
