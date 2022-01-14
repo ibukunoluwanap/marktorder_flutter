@@ -117,7 +117,6 @@ class _ProfileState extends State<Profile> {
         body: CustomScrollView(
       slivers: [
         CustomAppBar(
-          pinned: false,
           leadingIcon: Iconsax.arrow_left,
           leadingIconOnPress: () {},
           title: GestureDetector(
